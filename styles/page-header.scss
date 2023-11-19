@@ -1,0 +1,39 @@
+#page-header {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  height: 500px;
+  background: floralwhite;
+  display: flex;
+  align-items: first baseline;
+  justify-content: center;
+  border: solid black 2px;
+}
+
+#about-us {
+  width: 45%;
+  display: flex;
+  margin: 0;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#feature {
+  width: 45%;
+  display: flex;
+  margin: 0;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-header article {
+  width: 50%;
+  margin: 0;
+}
+
+
