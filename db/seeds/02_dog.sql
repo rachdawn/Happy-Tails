@@ -1,0 +1,3 @@
+INSERT INTO dog (name, age, breed, adoption_fee, admin_id, description, photo_url) VALUES ('Buddy', 3, 'Golden Retriever', 200.00, 1, 'Friendly and playful dog', 'https://example.com/buddy.jpg');
+INSERT INTO dog (name, age, breed, adoption_fee, admin_id, description, photo_url) VALUES ('Max', 2, 'German Shepherd', 250.00, 2, 'Active and loyal companion', 'https://example.com/max.jpg');
+INSERT INTO dog (name, age, breed, adoption_fee, admin_id, description, photo_url) VALUES ('Luna', 1, 'Labrador', 180.00, 3, 'Sweet and gentle temperament', 'https://example.com/luna.jpg');
