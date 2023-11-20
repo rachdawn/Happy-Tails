@@ -1,0 +1,51 @@
+nav {
+  display: flex;
+  height: 150px;
+  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);  color: #ffffff;
+  padding-left: 0.5em;
+  padding-right: 1.5em;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#logo {
+  display: flex;
+  font-family: 'Bungee', sans-serif;
+  align-items: center;
+  font-size: 1.3em;
+  padding: 8px;
+}
+
+.nav-favs {
+  font-family: 'Bungee', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-favs p {
+  color: #b4e5e8;
+  margin: 0;
+  font-size: 1em;
+}
+
+.nav-favs button {
+  background: none;
+  color: #b4e5e8;
+  padding: 4px 8px;
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-favs i {
+  color: rgb(211, 180, 226);
+  padding-top: 6px;
+}
+
+button:hover {
+  color: #ffffff;
+}

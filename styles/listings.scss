@@ -1,0 +1,56 @@
+.listings {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  display: flex;
+}
+
+article {
+  width: 30%;
+  border: solid 3px;
+  padding: 0.5em;
+  margin: 2em;
+  background-color: #b4e5e8;
+}
+
+article img {
+  width: 90%;
+  justify-content: center;
+}
+
+article:hover {
+  box-shadow: 4px 6px rgba(162, 176, 219, 0.958);
+}
+
+article header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+  margin-top: 0;
+}
+
+article footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  margin-top: 0;
+}
+
+article button {
+  color: rgb(211, 180, 226);
+  padding: 4px;
+  font-size: 1.5em;
+  border: none;
+  cursor: pointer;
+}
+
+article .fa-solid.fa-heart {
+  color: rgb(211, 180, 226);
+
+}
+
+button:hover {
+  color: #ffffff;
+}
