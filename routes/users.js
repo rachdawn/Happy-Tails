@@ -10,29 +10,40 @@ const router  = express.Router();
 
 
 // Router users
-router.get('/', (req, res) => {
+router.get('/users', (req, res) => {
   res.render('users');
 }); 
 
-// Router dogs
-router.get('/', (req, res) => {
-  res.render('dogs');
+// Router Create listing
+router.get('/ht_create_listing', (req, res) => {
+  res.render('ht_create_listing');
 }); 
 
-// Router listings
-router.get('/', (req, res) => {
-  res.render('listings');
+// Router Favourites
+router.get('/ht_favourites', (req, res) => {
+  res.render('ht_favourites');
 }); 
 
-// Router favorites
-router.get('/', (req, res) => {
-  res.render('favorites');
+// Router Listing Id
+router.get('/ht_listing_id', (req, res) => {
+  res.render('ht_listing_id');
 }); 
 
-// Router admins
-router.get('/', (req, res) => {
-  res.render('admins');
+// Router log in
+router.get('/ht_login', (req, res) => {
+  res.render('ht_login');
 }); 
+
+// Router ht_register
+router.get('/register', (req, res) => {
+  res.render('register');
+}); 
+
+// Router ht_register
+router.get('/index', (req, res) => {
+  res.render('index');
+}); 
+
 
 
 module.exports = router;
