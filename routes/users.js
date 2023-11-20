@@ -10,7 +10,7 @@ const router  = express.Router();
 
 
 // Router users
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
   res.render('users');
 }); 
 
