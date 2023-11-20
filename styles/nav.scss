@@ -32,12 +32,6 @@ nav {
   font-size: 1em;
 }
 
-.nav-favs.fa-solid.fa-heart {
-  color: #b4e5e8;
-  padding-top: 6px;
-  font-size: 2em;
-}
-
 .nav-favs button {
   background: none;
   color: #b4e5e8;
@@ -47,6 +41,11 @@ nav {
   cursor: pointer;
 }
 
-.fa-solid.fa-heart:hover {
+.nav-favs i {
+  color: rgb(211, 180, 226);
+  padding-top: 6px;
+}
+
+button:hover {
   color: #ffffff;
 }
