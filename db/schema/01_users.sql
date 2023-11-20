@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    email VARCHAR(100) UNIQUE,
-    password VARCHAR(100),
-    username VARCHAR(50)
+    id SERIAL PRIMARY KEY NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL
 );

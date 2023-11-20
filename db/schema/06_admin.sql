@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS admin CASCADE;
 
-CREATE TABLE admin (
-    Id INT PRIMARY KEY AUTO_INCREMENT,
-    Rescue_name VARCHAR(100),
-    email VARCHAR(100) UNIQUE,
-    password VARCHAR(100)
+CREATE TABLE admins (
+    id SERIAL PRIMARY KEY NOT NULL,
+    rescuer VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
 );
