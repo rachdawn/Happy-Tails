@@ -9,8 +9,15 @@ const dbParams = {
   database: process.env.DB_NAME
 };
 
-const db = new Pool(dbParams);
 
-db.connect();
+const db = new Pool(dbParams);
+// console.log("db params djhad", dbParams);
+
+try {
+  db.connect();
+} catch (e) {
+  console.log(e);
+}
+
 
 module.exports = db;
