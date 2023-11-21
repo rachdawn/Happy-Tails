@@ -2,7 +2,7 @@ const db = require('../connection');
 
 const getListings = () => {
   return db.query(`
-  SELECT listings.*, dogs.name, dogs.age, dogs.breed, dogs.photo_url
+  SELECT listings.*, dogs.name, dogs.adoption_fee, dogs.photo_url
   FROM listings
   JOIN dogs ON dog_id = dogs.id
   ;`)
