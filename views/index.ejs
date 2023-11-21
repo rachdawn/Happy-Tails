@@ -35,7 +35,7 @@
 <body>
   <nav>
     <div id="logo">
-      <h1>happy tails <br> rescue hub <i class="fa-solid fa-dog"></i></h1>
+      <h1>happy tails <i class="fa-solid fa-dog"></i></h1>
     </div>
     <div class="nav-favs">
       <button class="user-functions">
@@ -97,30 +97,12 @@
   </header>
   <main class="container">
     <section class="listings">
+    <% for (let list of listings) { %>
       <article>
         <header>
-          <p>NAME</p>
-          <p>Age: X</p>
-          <p>Breed: X</p>
-        </header>
-        <div>
-          <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt="dog">
-        </div>
-
-        <footer class="interactions">
-          <button>
-            about me
-          </button>
-          <button>
-            <a href="favs"><i class="fa-solid fa-heart"></i></a>
-          </button>
-        </footer>
-      </article>
-      <article>
-        <header>
-          <p>NAME</p>
-          <p>Age: X</p>
-          <p>Breed: X</p>
+          <p>Name: <%= list.name %></p>
+          <p>Age: <%= list.age %></p>
+          <p>Breed: <%= list.breed %></p>
         </header>
         <div>
           <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt="dog">
@@ -135,25 +117,7 @@
           </button>
         </footer>
       </article>
-      <article>
-        <header>
-          <p>NAME</p>
-          <p>Age: X</p>
-          <p>Breed: X</p>
-        </header>
-        <div>
-          <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt="dog">
-        </div>
-
-        <footer class="interactions">
-          <button>
-            about me
-          </button>
-          <button>
-            <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-          </button>
-        </footer>
-      </article>
+      <% } %>
     </section>
   </main>
   <footer></footer>

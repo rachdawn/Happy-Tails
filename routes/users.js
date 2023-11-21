@@ -6,10 +6,41 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const app  = express();
 
-router.get('/', (req, res) => {
+// Router users
+app.get('/', (req, res) => {
   res.render('users');
 }); 
 
-module.exports = router;
+// Router Create listing
+app.get('/ht_create_listing', (req, res) => {
+  res.render('ht_create_listing');
+}); 
+
+// Router Favourites
+app.get('/ht_favourites', (req, res) => {
+  res.render('ht_favourites');
+}); 
+
+// Router Listing Id
+app.get('/ht_listing_id', (req, res) => {
+  res.render('ht_listing_id');
+}); 
+
+// Router log in
+app.get('/ht_login', (req, res) => {
+  res.render('ht_login');
+}); 
+
+// Router ht_register
+app.get('/register', (req, res) => {
+  res.render('register');
+}); 
+
+// Router ht_register
+app.get('/index', (req, res) => {
+  res.render('index');
+}); 
+
+module.exports = app;

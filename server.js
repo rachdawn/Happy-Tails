@@ -1,6 +1,7 @@
 // load .env data into process.env
 require('dotenv').config();
 
+
 // Web server config
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
@@ -23,11 +24,12 @@ app.use(
     destination: __dirname + '/public/styles',
     isSass: false, // false => scss, true => sass
   })
-);
-app.use(express.static('public'));
-
-// Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
+  );
+  
+  app.use(express.static('public'));
+  
+  // Separated Routes for each Resource
+  // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
@@ -44,10 +46,53 @@ app.use('/users', usersRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+const listingsQueries = require('./db/queries/listings');
+
 app.get('/', (req, res) => {
-  res.render('index');
+
+  listingsQueries.getListings()
+  .then(listings => { 
+    const template = { listings };
+    
+    console.log("here ", listings)
+    res.render('index', template);
+  })
+  .catch(err => {
+    console.log("coming here")
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
 });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
+});
+
+
+// MOVE THESE LATER
+
+// Login Page
+app.get('/ht_login', (req, res) => {
+  res.render('ht_login');
+});
+
+// Register Page
+app.get('/ht_register', (req, res) => {
+  res.render('ht_register');
+});
+
+// Create Listing Page
+app.get('/ht_create_listing', (req, res) => {
+  res.render('ht_create_listing');
+});
+
+// Favourites Page
+app.get('/ht_favourites', (req, res) => {
+  res.render('ht_favourites');
+});
+
+// Listing ID Page
+app.get('/ht_listing_id', (req, res) => {
+  res.render('ht_listing_id');
 });
