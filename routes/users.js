@@ -8,7 +8,6 @@
 const express = require('express');
 const router  = express.Router();
 
-
 // Router users
 router.get('/', (req, res) => {
   res.render('users');
