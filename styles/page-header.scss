@@ -1,22 +1,24 @@
 #page-header {
   margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 80px;
-  height: 500px;
-  background: floralwhite;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  height: 580px;
   display: flex;
-  align-items: first baseline;
+  align-items: center;
   justify-content: center;
+  background-color: rgb(239, 239, 238);
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
 }
 
 #about-us {
   width: 45%;
   display: flex;
   margin: 0;
-  padding: 1em;
+  padding: 2em;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.2em;
 }
 
 #feature {
@@ -32,6 +34,13 @@
 #page-header article {
   width: 50%;
   margin: 0;
+  background: rgb(163, 208, 219);
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+
+}
+
+#page-header h2 {
+  font-family: 'Bungee', sans-serif;
 }
 
 

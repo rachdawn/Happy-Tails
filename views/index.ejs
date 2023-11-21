@@ -51,25 +51,23 @@
         <div id="feature">
           <h2>dog of the day</h2>
           <article>
-            <header>
-              <p>NAME</p>
-              <p>Age: X</p>
-              <p>Breed: X</p>
-            </header>
-            <div>
               <img
-                src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
-                alt="dog">
-            </div>
+                src="https://assets-global.website-files.com/60cd7ae35efaf14623f555c5/63750d9abc877e00efff1906_golden-retriever-service-dog-everything-you-need-to-know.jpg"
 
-            <footer class="interactions">
-              <button>
-                about me
-              </button>
-              <button>
-                <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-              </button>
-            </footer>
+                alt="dog">
+              <div>
+                <h2>
+                  NAME
+                </h2>
+                <footer class="interactions">
+                  <button>
+                    MORE INFO
+                  </button>
+                  <button>
+                    <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                  </button>
+                </footer>
+              </div>
           </article>
         </div>
       </header>
@@ -77,30 +75,22 @@
         <section class="listings">
           <% for (let list of listings) { %>
             <article>
-              <header>
-                <p>Name: <%= list.name %>
-                </p>
-                <p>Age: <%= list.age %>
-                </p>
-                <p>Breed: <%= list.breed %>
-                </p>
-              </header>
-              <div>
                 <img
-                  src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+                  src=<%= list.photo_url %>
                   alt="dog">
-              </div>
-
-              <footer class="interactions">
+                <h2>
+                  <%= list.name %>
+                </h2>
+                <footer class="interactions">
                 <button>
-                  <a href="/ht_listing_id:<%= list.id %>">More Info</a>
+                  <a href="/ht_listing_id:<%= list.id %>">MORE INFO</a>
                 </button>
                 <button>
                   <a href="/favs"><i class="fa-solid fa-heart"></i></a>
                 </button>
               </footer>
             </article>
-            <% } %>
+          <% } %>
         </section>
       </main>
       <footer></footer>
