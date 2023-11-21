@@ -32,8 +32,28 @@
   <script defer src="/scripts/app.js"></script>
 </head>
 <body>
-  <div><%- include('partials/_header') %></div>
+  <%- include('partials/_header') %>
   <main>
+    <h1>Create an account!</h1>
+    <form class="form-group" action="/ht_register" method="POST">
+      <label for="email">E-mail:</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="user@email.com"
+        style="width: 300px; margin: 1em"
+      />
+      <br>
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="password"
+        style="width: 300px; margin: 1em"
+      />
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   </main>
 </body>
 </html>

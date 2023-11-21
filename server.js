@@ -52,3 +52,31 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
+// MOVE THESE LATER
+
+// Login Page
+app.get('/ht_login', (req, res) => {
+  res.render('ht_login');
+});
+
+// Register Page
+app.get('/ht_register', (req, res) => {
+  res.render('ht_register');
+});
+
+// Create Listing Page
+app.get('/ht_create_listing', (req, res) => {
+  res.render('ht_create_listing');
+});
+
+// Favourites Page
+app.get('/ht_favourites', (req, res) => {
+  res.render('ht_favourites');
+});
+
+// Listing ID Page
+app.get('/ht_listing_id', (req, res) => {
+  res.render('ht_listing_id');
+});
