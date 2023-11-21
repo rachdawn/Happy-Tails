@@ -5,3 +5,4 @@ VALUES
 ('Luna', 1, 'Labrador Retriever', 200, 3, 'Sweet and gentle temperament', 'https://www.dogster.com/wp-content/uploads/2022/12/Labrador-retriever1_1163331995.jpg'),
 ('Finn', 6, 'Chihuahua', 250, 2, 'Sweet and gentle temperament', 'https://images.saymedia-content.com/.image/c_limit%2Ccs_srgb%2Cq_auto:eco%2Cw_700/MjAxMjM1NTc0NjYzNjg1NjU0/chihuahua-guide.webp'),
 ('Josie', 1, 'Husky', 300, 1, 'Active and loyal companion', 'https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1685787498.877709/fun-facts-about-siberian-huskies-1.png');
+
