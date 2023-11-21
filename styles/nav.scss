@@ -26,7 +26,7 @@ nav {
   text-decoration: none;
 }
 
-.nav-favs {
+.nav-interactions {
   font-family: 'Bungee', sans-serif;
   display: flex;
   flex-direction: row;
@@ -40,7 +40,7 @@ nav p {
   font-size: 1em;
 }
 
-.nav-favs button {
+.nav-interactions button {
   background: none;
   color: #b4e5e8;
   padding: 4px 8px;
@@ -49,7 +49,7 @@ nav p {
   cursor: pointer;
 }
 
-.nav-favs i {
+.nav-interactions i {
   color: rgb(211, 180, 226);
   padding-top: 6px;
 }

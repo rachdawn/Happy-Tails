@@ -3,32 +3,39 @@
   margin: 0 auto;
   padding: 1em;
   display: flex;
-  font-family: 'Bungee', sans-serif;
+  flex-wrap: wrap;
+
+  justify-content: center;
 }
 
-main {
+.container {
   background: rgb(163, 208, 219);
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
-article {
-  width: 33%;
+.listings article {
+  min-width: 28%;
   border: 1px solid rgba(162, 176, 219, 0.958);
-  padding: 0.5em;
-  margin: 2em;
+  padding-top: 1em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  margin: 1.5em;
   background-color: floralwhite;
   border-radius: 12px;
   text-align: center;
 }
 
 article h2 {
+  font-family: 'Bungee', sans-serif;
   margin: 0 auto;
 }
 
 article img {
-  width: 90%;
-  margin: 0 auto;
-  padding: 0.75em;
+  width: auto;
+  height: 180px;
+  overflow: hidden;
+  padding: 0.5em;
+  margin-bottom: 1em;
   border-radius: 20px;
 }
 
@@ -36,46 +43,44 @@ article:hover {
   box-shadow: 4px 6px rgba(162, 176, 219, 0.958);
 }
 
-article header {
+.dog-info {
+  margin-bottom: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-bottom: 1em;
-  margin-top: 0;
+  align-items: flex-end;
 }
 
 article footer {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  padding: 0.5em;
+  align-items: last baseline;
+  padding: 1em 0;
   margin-top: 0;
 }
 
 .interactions button {
   color: rgb(211, 180, 226);
-  padding: 4px;
+  padding: 3px;
   font-size: 1.5em;
   border: none;
   cursor: pointer;
   border-radius: 10px;
-
 }
 
 article .fa-solid.fa-heart {
   color: rgb(211, 180, 226);
-
 }
 
 button a {
   color: rgb(211, 180, 226);
   max-width: 10%;
+  text-decoration: none;
 }
 
 button:hover {
   color: #ffffff;
 }
 
-.interactions a {
-  text-decoration: none;
-}
+// .interactions a {
+//   text-decoration: none;
+// }
