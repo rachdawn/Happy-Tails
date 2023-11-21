@@ -6,6 +6,7 @@ nav {
   padding-right: 1.5em;
   justify-content: space-between;
   top: 0;
+  position: fixed;
   width: 100%;
 }
 
@@ -15,13 +16,14 @@ nav {
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  font-size: 15px;
+  font-size: 18px;
   word-spacing: 5px;
   margin-left: 10px;
 }
 
 #logo a {
   color: white;
+  text-decoration: none;
 }
 
 .nav-favs {
@@ -32,8 +34,8 @@ nav {
   align-items: center;
 }
 
-.nav-favs p {
-  color: #b4e5e8;
+nav p {
+  color: #ADE0F7;
   margin: 0;
   font-size: 1em;
 }
