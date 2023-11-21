@@ -52,7 +52,8 @@
           <h2>dog of the day</h2>
           <article>
               <img
-                src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+                src="https://assets-global.website-files.com/60cd7ae35efaf14623f555c5/63750d9abc877e00efff1906_golden-retriever-service-dog-everything-you-need-to-know.jpg"
+
                 alt="dog">
               <div>
                 <h2>
@@ -75,7 +76,7 @@
           <% for (let list of listings) { %>
             <article>
                 <img
-                  src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+                  src=<%= list.photo_url %>
                   alt="dog">
                 <h2>
                   <%= list.name %>
@@ -84,6 +85,7 @@
                 <button>
                   <a href="/ht_listing_id:<%= list.id %>">MORE INFO</a>
                 </button>
+                  <h2><%= list.adoption_fee %></h2>
                 <button>
                   <a href="/favs"><i class="fa-solid fa-heart"></i></a>
                 </button>
