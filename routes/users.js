@@ -6,43 +6,41 @@
  */
 
 const express = require('express');
-const router  = express.Router();
+const app  = express();
 
 // Router users
-router.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.render('users');
 }); 
 
 // Router Create listing
-router.get('/ht_create_listing', (req, res) => {
+app.get('/ht_create_listing', (req, res) => {
   res.render('ht_create_listing');
 }); 
 
 // Router Favourites
-router.get('/ht_favourites', (req, res) => {
+app.get('/ht_favourites', (req, res) => {
   res.render('ht_favourites');
 }); 
 
 // Router Listing Id
-router.get('/ht_listing_id', (req, res) => {
+app.get('/ht_listing_id', (req, res) => {
   res.render('ht_listing_id');
 }); 
 
 // Router log in
-router.get('/ht_login', (req, res) => {
+app.get('/ht_login', (req, res) => {
   res.render('ht_login');
 }); 
 
 // Router ht_register
-router.get('/register', (req, res) => {
+app.get('/register', (req, res) => {
   res.render('register');
 }); 
 
 // Router ht_register
-router.get('/index', (req, res) => {
+app.get('/index', (req, res) => {
   res.render('index');
 }); 
 
-
-
-module.exports = router;
+module.exports = app;
