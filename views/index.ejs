@@ -4,8 +4,8 @@
 <head>
   <!-- Meta Information -->
   <title>Home Page</title>
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   <!-- App CSS -->
@@ -20,12 +20,13 @@
   <!-- External Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
 
   <!-- CDN libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -33,95 +34,77 @@
 </head>
 
 <body>
-  <nav>
-    <div id="logo">
-      <h1>happy tails <i class="fa-solid fa-dog"></i></h1>
-    </div>
-    <div class="nav-favs">
-      <button class="user-functions">
-        <span>
-          <i class="fa-solid fa-heart"></i>
-          MY FAV PUPS
-        </span>
-      </button>
-      <button class="user-functions">
-        <span>
-          <i class="fa-solid fa-paw"></i>
-          Login
-        </span>
-      </button>
-      <button class="user-functions">
-        <span>
-          <i class="fa-solid fa-paw"></i>
-          Create Account
-        </span>
-      </button>
-    </div>
-</nav>
-<div>
-  <header id="page-header">
-    <div id="about-us">
-      <h2>about us</h2>
-      <article>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-        Eveniet, itaque? Dolor at veritatis fugiat corrupti sint pariatur
-        illo laboriosam eos nisi. Sint voluptate eum fugiat facilis omnis,
-        reiciendis ex quibusdam. Lorem ipsum dolor, sit amet consectetur adipisicing
-        elit. Reiciendis et accusantium delectus magni possimus numquam molestiae amet
-        dicta inventore modi alias iure corrupti, culpa quos debitis magnam deserunt
-        sint ullam.
-      </article>
-    </div>
-    <div id="feature">
-      <h2>dog of the day</h2>
-      <article>
-        <header>
-          <p>NAME</p>
-          <p>Age: X</p>
-          <p>Breed: X</p>
-        </header>
-        <div>
-          <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt="dog">
+  <%- include('partials/_header') %>
+    <div>
+      <header id="page-header">
+        <div id="about-us">
+          <h2>about us</h2>
+          <article>
+            <p>
+              Happy Tails Rescue Hub was created for the purpose of streamlining the process of connecting adoptable
+              dogs with their fur-ever families. As avid dog lovers and supporters of the rescue community, we aim to
+              increase exposure for local rescues by providing a central hub for those who are looking to adopt a furry
+              friend.
+            </p>
+          </article>
         </div>
+        <div id="feature">
+          <h2>dog of the day</h2>
+          <article>
+            <header>
+              <p>NAME</p>
+              <p>Age: X</p>
+              <p>Breed: X</p>
+            </header>
+            <div>
+              <img
+                src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+                alt="dog">
+            </div>
 
-        <footer class="interactions">
-          <button>
-            about me
-          </button>
-          <button>
-            <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-          </button>
-        </footer>
-      </article>
-    </div>
-  </header>
-  <main class="container">
-    <section class="listings">
-    <% for (let list of listings) { %>
-      <article>
-        <header>
-          <p>Name: <%= list.name %></p>
-          <p>Age: <%= list.age %></p>
-          <p>Breed: <%= list.breed %></p>
-        </header>
-        <div>
-          <img src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg" alt="dog">
+            <footer class="interactions">
+              <button>
+                about me
+              </button>
+              <button>
+                <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+              </button>
+            </footer>
+          </article>
         </div>
+      </header>
+      <main class="container">
+        <section class="listings">
+          <% for (let list of listings) { %>
+            <article>
+              <header>
+                <p>Name: <%= list.name %>
+                </p>
+                <p>Age: <%= list.age %>
+                </p>
+                <p>Breed: <%= list.breed %>
+                </p>
+              </header>
+              <div>
+                <img
+                  src="https://cdn-prod.medicalnewstoday.com/content/images/articles/322/322868/golden-retriever-puppy.jpg"
+                  alt="dog">
+              </div>
 
-        <footer class="interactions">
-          <button>
-            about me
-          </button>
-          <button>
-            <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-          </button>
-        </footer>
-      </article>
-      <% } %>
-    </section>
-  </main>
-  <footer></footer>
-</div>
+              <footer class="interactions">
+                <button>
+                  about me
+                </button>
+                <button>
+                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                </button>
+              </footer>
+            </article>
+            <% } %>
+        </section>
+      </main>
+      <footer></footer>
+    </div>
 </body>
 
 </html>
