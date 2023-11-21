@@ -6,6 +6,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const cookieSession = require('cookie-session')
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -25,6 +26,10 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
   );
+  app.use(cookieSession({
+    name: "session",
+    keys: ["hamza"]
+  }))
   
   app.use(express.static('public'));
   
@@ -47,6 +52,8 @@ app.use('/users', usersRoutes);
 // Separate them into separate routes files (see above).
 
 const listingsQueries = require('./db/queries/listings');
+const { addUser } = require('./db/queries/register');
+const { getUserByEmail } = require('./db/queries/register-check');
 
 app.get('/', (req, res) => {
 
@@ -74,13 +81,71 @@ app.listen(PORT, () => {
 
 // Login Page
 app.get('/ht_login', (req, res) => {
+  const userId = req.session.user_id;
+
+  if (userId) {
+    return res.redirect('/')
+  }
+  
   res.render('ht_login');
 });
 
+app.post('/ht_login', (req,res) => {
+  //select query with email
+  const { email, password } = req.body;
+  
+  return getUserByEmail(email)
+  .then(user => {
+    if (user.password === password) {
+      req.session.user_id = user.id;
+      return res.redirect("/");
+    } else {
+      return res.status(500).send("wrong password")
+    }
+  })
+})
+
 // Register Page
 app.get('/ht_register', (req, res) => {
-  res.render('ht_register');
+  const userId = req.session.user_id;
+
+  if(userId) {
+    res.redirect("/")
+  }
+  else {
+    res.render('ht_register');
+  }
+  
 });
+
+app.post('/ht_register', (req, res) => {
+  const {username, email, password} = req.body;
+
+  if (!username || !email || !password) {
+    return res.status(400).send("inputs not valid")
+  }
+
+  //check if user exists
+  return getUserByEmail(email)
+  .then(user => {
+    console.log(email)
+    if (user && user.email) {
+      console.log(user.email)
+      return res.status(400).send("email already in use");
+    } else {
+      return addUser(username, email, password)
+      .then((user) => {
+        return res.redirect('/ht_login')
+      }).catch(err => {
+        console.log("error", err);
+        return res.status(500).send("please try again");
+      }) 
+    }
+  })
+})
+
+
+
 
 // Create Listing Page
 app.get('/ht_create_listing', (req, res) => {
@@ -96,3 +161,4 @@ app.get('/ht_favourites', (req, res) => {
 app.get('/ht_listing_id', (req, res) => {
   res.render('ht_listing_id');
 });
+
