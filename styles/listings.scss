@@ -59,8 +59,8 @@ article footer {
 }
 
 .interactions button {
-  color: rgb(211, 180, 226);
-  padding: 3px;
+  background-color: rgb(211, 180, 226);
+  color: #ffffff;
   font-size: 1.5em;
   border: none;
   cursor: pointer;
@@ -68,12 +68,14 @@ article footer {
 }
 
 article .fa-solid.fa-heart {
-  color: rgb(211, 180, 226);
+  background-color: rgb(211, 180, 226);
+  padding: 3px;
+  color: #ffffff;
 }
 
 button a {
-  color: rgb(211, 180, 226);
-  max-width: 10%;
+  color: #ffffff;
+  padding: 3px;
   text-decoration: none;
 }
 
@@ -81,6 +83,3 @@ button:hover {
   color: #ffffff;
 }
 
-// .interactions a {
-//   text-decoration: none;
-// }
