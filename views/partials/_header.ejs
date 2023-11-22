@@ -6,6 +6,22 @@
   </div>
   <div class="nav-interactions">
     <% if (user && user.id) { %>
+      <form method="GET" action="/ht_create_listing">
+        <button class="user-functions">
+          <span>
+            <i class="fa-solid fa-heart"></i>
+            My listings
+          </span>
+        </button>
+      </form>
+      <form method="GET" action="/ht_create_listing">
+        <button class="user-functions">
+          <span>
+            <i class="fa-solid fa-heart"></i>
+            Create Listing
+          </span>
+        </button>
+      </form>
       <form method="GET" action="/ht_favourites">
         <button class="user-functions">
           <span>
