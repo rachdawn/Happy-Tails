@@ -1,0 +1,36 @@
+.create-listing form {
+  display: flex;
+  flex-direction: column;
+  border: lightgrey;
+  font-size: 1.5em;
+}
+
+.create-listing input {
+  border-radius: 10px;
+  padding: 0.2em 0.5em;
+  width: 24em;
+  cursor: pointer;
+  border: solid 2px lightgrey;
+}
+
+.create-listing textarea {
+  border-radius: 10px;
+  padding: 0.2em 0.5em;
+  width: 24em;
+  cursor: pointer;
+  border: solid 2px lightgrey;
+}
+
+.create-listing button {
+  margin-top: 1em;
+  border-radius: 10px;
+  background-color: rgb(211, 180, 226);
+  color: #ffffff;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+  border: none;
+}
+
+.create-listing h1 {
+  font-family: 'Bungee', sans-serif;
+}
