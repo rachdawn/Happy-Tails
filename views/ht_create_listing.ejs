@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
-  <link rel="stylesheet" href="/styles/listings.css" />
-  <link rel="stylesheet" href="/styles/page-header.css" />
+  <link rel="stylesheet" href="/styles/create-listing.css" />
+
 
   <!-- External Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,9 +33,10 @@
 </head>
 <body>
   <%- include('partials/_header') %>
-  <main>
+  <main class="create-listing">
+    <h1>Create A New Listing</h1>
     <form action="/ht_create_listing" method="POST">
-      <label for="name">Name:</label>
+      <label for="name">Name of Dog:</label>
       <input type="text" id="name" name="name" required>
 
       <label for="age">Age:</label>
