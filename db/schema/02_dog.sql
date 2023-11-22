@@ -8,5 +8,6 @@ CREATE TABLE dogs (
     breed VARCHAR(255) NOT NULL,
     adoption_fee INT NOT NULL,
     description TEXT,
-    photo_url VARCHAR(255) NOT NULL
+    photo_url VARCHAR(255) NOT NULL,
+    adoptable BOOLEAN NOT NULL DEFAULT TRUE
 );
