@@ -175,6 +175,10 @@ app.post('/ht_register', (req, res) => {
   })
 });
 
+app.post('/ht_favourites', (req, res) => {
+  
+})
+
 // Create Listing Page
 app.get('/ht_create_listing', (req, res) => {
   res.render('ht_create_listing');
