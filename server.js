@@ -77,11 +77,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const { number }  = req.body;
-
-  if (typeof number !== 'number') {
-    return res.status(400).send('Please enter a valid number');
-  }
-
+  
     console.log(number)
     listingsQueries.getListings(number)
     .then(listings => {
