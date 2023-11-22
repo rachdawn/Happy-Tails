@@ -5,7 +5,6 @@ CREATE TABLE listings (
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
     dog_id INT REFERENCES dogs(id) ON DELETE CASCADE,
     publish_date DATE NOT NULL,
-    adoptable BOOLEAN NOT NULL DEFAULT FALSE,
     liked BOOLEAN DEFAULT FALSE
 );
 
