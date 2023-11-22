@@ -34,7 +34,27 @@
 <body>
   <%- include('partials/_header') %>
   <main>
+    <form action="/ht_create_listing" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
 
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="breed">Breed:</label>
+      <input type="text" id="breed" name="breed" required>
+
+      <label for="adoption_fee">Adoption Fee:</label>
+      <input type="number" id="adoption_fee" name="adoption_fee" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description"></textarea>
+
+      <label for="photo_url">Photo URL:</label>
+      <input type="text" id="photo_url" name="photo_url" required>
+
+      <button type="submit">Create Listing</button>
+    </form>
   </main>
 </body>
 </html>
