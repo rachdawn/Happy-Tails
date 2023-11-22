@@ -3,31 +3,37 @@
     <a href="/">
       <h1>happy tails <i class="fa-solid fa-dog"></i></h1>
     </a>
-</div>
+  </div>
   <div class="nav-interactions">
-    <form  method="GET" action="/ht_favourites">
-      <button class="user-functions">
-        <span>
-          <i class="fa-solid fa-heart"></i>
-          MY FAV PUPS
-        </span>
-      </button>
-    </form>
-    <form  method="GET" action="/ht_login">
-    <button class="user-functions">
-      <span>
-        <i class="fa-solid fa-paw"></i>
-        Login
-      </span>
-    </button>
-  </form>
-  <form  method="GET" action="/ht_register">
-    <button class="user-functions">
-      <span>
-        <i class="fa-solid fa-paw"></i>
-        Create Account
-      </span>
-    </button>
-  </form>
+    <% if (user) { %>
+      <form method="GET" action="/ht_favourites">
+        <button class="user-functions">
+          <span>
+            <i class="fa-solid fa-heart"></i>
+            MY FAV PUPS
+          </span>
+        </button>
+      </form>
+      <form method="POST" action="/ht_logout">
+        <button type="submit">Logout</button>
+      </form>
+      <% } else { %>
+        <form method="GET" action="/ht_login">
+          <button class="user-functions">
+            <span>
+              <i class="fa-solid fa-paw"></i>
+              Login
+            </span>
+          </button>
+        </form>
+        <form method="GET" action="/ht_register">
+          <button class="user-functions">
+            <span>
+              <i class="fa-solid fa-paw"></i>
+              Create Account
+            </span>
+          </button>
+        </form>
+      <% } %>
   </div>
 </nav>
