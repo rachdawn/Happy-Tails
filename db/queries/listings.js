@@ -1,11 +1,12 @@
 const db = require('../connection');
 
-const getListings = () => {
+const getListings = (fee) => {
   return db.query(`
   SELECT listings.*, dogs.name, dogs.adoption_fee, dogs.photo_url
   FROM listings
   JOIN dogs ON dog_id = dogs.id
-  ;`)
+  WHERE dogs.adoption_fee <= $1
+  ;`, [fee] )
     .then(data => {
       return data.rows;
     })
