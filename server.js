@@ -59,8 +59,9 @@ const { addUser } = require('./db/queries/register');
 const { getUserByEmail } = require('./db/queries/register-check');
 
 app.get('/', (req, res) => {
-  listingsQueries.getListings()
-  .then(listings => {
+  
+  listingsQueries.getListings(200000)
+  .then(listings => { 
     const template = { listings };
 
     console.log("here ", listings)
@@ -74,6 +75,29 @@ app.get('/', (req, res) => {
   });
 });
 
+app.post('/', (req, res) => {
+  const { number }  = req.body;
+
+  if (typeof number !== 'number') {
+    return res.status(400).send('Please enter a valid number');
+  }
+
+    console.log(number)
+    listingsQueries.getListings(number)
+    .then(listings => { 
+      const template = { listings };
+      
+      console.log("here ", listings)
+      res.render('index', template);
+    })
+    .catch(err => {
+      console.log("coming here")
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
@@ -85,6 +109,7 @@ app.listen(PORT, () => {
 // Login Page
 app.get("/ht_login", (req, res) => {
   const userId = req.session.user_id;
+
   if (userId) {
     return res.redirect("/");
   }
