@@ -74,10 +74,12 @@
       <main class="container">
        <nav class="filterBar">
         <h2>Adoptable Dogs</h2>
+        <form class="form-group" action="/" method="POST">
           <label for="filter">Filter by Adoption Fee:
-            <input type="text" id="filter" placeholder="maximum fee">
+            <input type="text" name ="number" id="filter" placeholder="maximum fee">
             <button type="submit">Submit</button>
           </label>
+        </form>
        </nav>
         <section class="listings">
           <% for (let list of listings) { %>
