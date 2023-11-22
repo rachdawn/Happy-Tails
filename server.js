@@ -30,9 +30,9 @@ app.use(
     name: "session",
     keys: ["hamza"]
   }))
-  
+
   app.use(express.static('public'));
-  
+
   // Separated Routes for each Resource
   // Note: Feel free to replace the example routes below with your own
 const userApiRoutes = require('./routes/users-api');
@@ -46,7 +46,10 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 // Note: mount other resources here, using the same pattern above
-
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
@@ -58,9 +61,9 @@ const { getUserByEmail } = require('./db/queries/register-check');
 app.get('/', (req, res) => {
 
   listingsQueries.getListings(200000)
-  .then(listings => { 
+  .then(listings => {
     const template = { listings };
-    
+
     console.log("here ", listings)
     res.render('index', template);
   })
@@ -75,11 +78,15 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   const { number }  = req.body;
 
+  if (typeof number !== 'number') {
+    return res.status(400).send('Please enter a valid number');
+  }
+
     console.log(number)
     listingsQueries.getListings(number)
-    .then(listings => { 
+    .then(listings => {
       const template = { listings };
-      
+
       console.log("here ", listings)
       res.render('index', template);
     })
@@ -98,31 +105,41 @@ app.listen(PORT, () => {
 
 // MOVE THESE LATER
 
+
 // Login Page
-app.get('/ht_login', (req, res) => {
+app.get("/ht_login", (req, res) => {
   const userId = req.session.user_id;
-  
+
   if (userId) {
-    return res.redirect('/')
+    return res.redirect("/");
   }
-  
-  res.render('ht_login');
+  res.render("ht_login");
 });
 
-app.post('/ht_login', (req,res) => {
+app.post("/ht_login", (req, res) => {
   //select query with email
   const { email, password } = req.body;
-  
+
   return getUserByEmail(email)
-  .then(user => {
-    if (user.password === password) {
-      req.session.user_id = user.id;
-      return res.redirect("/");
-    } else {
-      return res.status(500).send("wrong password")
-    }
-  })
-})
+    .then((user) => {
+      if (user.password === password) {
+        req.session.user = user;
+        return res.redirect("/");
+      } else {
+        return res.status(401).send("wrong password");
+      }
+    })
+    .catch((error) => {
+      console.error("Login error:", error);
+      res.status(500).send("An error occured while logging in.");
+    });
+});
+
+// Logout function
+app.post('/ht_logout', (req, res) => {
+  req.session = null;
+  res.redirect('/ht_login');
+});
 
 // Register Page
 app.get('/ht_register', (req, res) => {
@@ -134,7 +151,6 @@ app.get('/ht_register', (req, res) => {
   else {
     res.render('ht_register');
   }
-  
 });
 
 app.post('/ht_register', (req, res) => {
@@ -158,13 +174,10 @@ app.post('/ht_register', (req, res) => {
       }).catch(err => {
         console.log("error", err);
         return res.status(500).send("please try again");
-      }) 
+      })
     }
   })
-})
-
-
-
+});
 
 // Create Listing Page
 app.get('/ht_create_listing', (req, res) => {
