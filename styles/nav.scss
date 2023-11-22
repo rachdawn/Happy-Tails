@@ -1,7 +1,7 @@
-nav {
+.page-nav {
   display: flex;
   height: 100px;
-  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);  color: #ffffff;
+  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(241, 241, 127) 90%);  color: #ffffff;
   padding-left: 0.5em;
   padding-right: 1.5em;
   justify-content: space-between;
@@ -34,7 +34,7 @@ nav {
   align-items: center;
 }
 
-nav p {
+.page-nav p {
   color: #ADE0F7;
   margin: 0;
   font-size: 1em;
@@ -56,4 +56,38 @@ nav p {
 
 button:hover {
   color: #ffffff;
+}
+
+
+.filterBar {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(241, 241, 127) 90%);  color: #ffffff;
+  padding: 1em;
+
+}
+
+.filterBar label {
+  font-size: 1.3em;
+}
+
+.filterBar input {
+  border-radius: 10px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0 0.5em;
+  width: 8em;
+  cursor: pointer;
+  border: lightgrey;
+}
+
+.filterBar button {
+  border-radius: 10px;
+  background-color: rgb(211, 180, 226);
+  color: #ffffff;
+  padding: 0 0.5em;
+  cursor: pointer;
+  border: none;
 }
