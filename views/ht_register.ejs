@@ -14,8 +14,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
-  <link rel="stylesheet" href="/styles/listings.css" />
-  <link rel="stylesheet" href="/styles/page-header.css" />
+  <link rel="stylesheet" href="/styles/register-login.css" />
 
   <!-- External Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -33,35 +32,29 @@
 </head>
 <body>
   <%- include('partials/_header') %>
-  <main>
-    <h1>Create an account!</h1>
-    <form class="form-group" action="/ht_register" method="POST">
+  <main class="register-login">
+    <h1>Create Account</h1>
+    <form action="/ht_register" method="POST">
       <label for="username">Username:</label>
       <input
       type="text"
       name="username"
       placeholder="username"
-      style="width: 300px; margin-top: 5px;"
       />
-      <br>
+
       <label for="email">E-mail:</label>
       <input
       type="email"
       name="email"
       placeholder="user@email.com"
-      style="width: 300px; margin: 1em"
       />
-      <br>
-      <br>
       <label for="password">Password:</label>
       <input
         type="password"
         name="password"
         placeholder="password"
-        style="width: 300px; margin-top: 5px;"
       />
-      <br>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   </main>
 </body>
