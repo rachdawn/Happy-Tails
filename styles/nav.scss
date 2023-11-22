@@ -71,6 +71,7 @@ button:hover {
 
 .filterBar label {
   font-size: 1.3em;
+  color: rgb(211, 180, 226);
 }
 
 .filterBar input {
@@ -80,7 +81,7 @@ button:hover {
   padding: 0 0.5em;
   width: 8em;
   cursor: pointer;
-  border: lightgrey;
+  border: solid 2px lightgrey;
 }
 
 .filterBar button {
