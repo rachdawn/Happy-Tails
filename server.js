@@ -77,7 +77,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const { number }  = req.body;
-  
+
     console.log(number)
     listingsQueries.getListings(number)
     .then(listings => {
@@ -176,7 +176,7 @@ app.post('/ht_register', (req, res) => {
 });
 
 app.post('/ht_favourites', (req, res) => {
-  
+
 })
 
 // Create Listing Page
@@ -192,5 +192,10 @@ app.get('/ht_favourites', (req, res) => {
 // Listing ID Page
 app.get('/ht_listing_id', (req, res) => {
   res.render('ht_listing_id');
+});
+
+// My Listings Page
+app.get('/ht_my_listings', (req, res) => {
+  res.render('ht_my_listings');
 });
 
