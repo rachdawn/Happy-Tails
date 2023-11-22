@@ -3,5 +3,6 @@ DROP TABLE IF EXISTS favourites CASCADE;
 CREATE TABLE favourites (
     id SERIAL PRIMARY KEY NOT NULL,
     user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    listing_id INT REFERENCES listings(id) ON DELETE CASCADE
+    listing_id INT REFERENCES listings(id) ON DELETE CASCADE,
+    liked BOOLEAN DEFAULT FALSE
 );
