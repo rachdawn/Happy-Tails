@@ -64,13 +64,27 @@
                 <button>
                   <a href="/favs"><i class="fa-solid fa-heart"></i></a>
                 </button>
+              </form>
             <% } else { %>
               <form method="GET" action="/ht_login">
                 <button>
                   <a href="/favs"><i class="fa-solid fa-heart"></i></a>
                 </button>
+              </form>
             <% } %>
           </footer>
+          <form method="POST" action="/delete-listing/<%= list.id %>">
+            <input type="hidden" name="id" value="<%= list.id %>">
+            <button type="submit">
+              Delete Listing
+            </button>
+          </form>
+          <form method="POST" action="/mark-as-taken/<%= list.id %>">
+            <input type="hidden" name="id" value="<%= list.id %>">
+            <button type="submit">
+              Mark as Taken
+            </button>
+          </form>
         </article>
       <% } %>
     </section>

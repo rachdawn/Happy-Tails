@@ -62,6 +62,8 @@ const { insertFav } = require('./db/queries/favouriteListing')
 const { addListing } = require('./db/queries/createListing')
 const { getMyListings } = require('./db/queries/getMyListings')
 const { findDog } = require('./db/queries/findDog');
+const { deleteListing } = require('./db/queries/deleteListing')
+const { adoptability } = require('./db/queries/availability')
 
 app.get('/', (req, res) => {
 
@@ -233,7 +235,6 @@ app.post('/ht_create_listing', (req, res) => {
 
 // Listing ID Page
 app.get('/ht_listing_id', (req, res) => {
-
   res.render('ht_listing_id');
 });
 
@@ -266,4 +267,31 @@ app.get('/ht_listing/:id', (req, res) => {
     console.error(error);
     res.status(404).send('Dog not found');
   });
+});
+
+app.post('/delete-listing/:id', (req, res) => {
+  const { id } = req.body;
+  console.log("look here", id);
+  console.log("look here", req.body);
+
+  deleteListing(id)
+    .then(() => {
+      console.log('Deleted dog with id:', id);
+      res.redirect('/ht_my_listings');
+    })
+    .catch((error) => {
+      console.log('Error deleting dog:', error);
+      res.status(500).send('Error deleting dog');
+    });
+});
+
+app.post('/mark-as-taken/:id', (req, res) => {
+  const { id } = req.body;
+ 
+  adoptability(id)
+  .then(() => {
+    res.redirect('/ht_my_listings')
+  }).catch((error) => {
+    console.log("error with marking dog" + error.message)
+  })
 });
