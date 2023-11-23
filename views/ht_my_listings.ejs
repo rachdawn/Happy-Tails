@@ -4,8 +4,8 @@
 <head>
   <!-- Meta Information -->
   <title>Create A New Listing</title>
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   <!-- App CSS -->
@@ -15,65 +15,77 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/listings.css" />
-  <link rel="stylesheet" href="/styles/page-header.css" />
+  <link rel="stylesheet" href="/styles/my-listings.css" />
 
   <!-- External Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
 
   <!-- CDN libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
+
 <body>
   <%- include('partials/_header') %>
-  <main>
-    <section class="listings">
-      <% for (let list of listings) { %>
-        <article>
-          <h2>
-            <%= list.name %>
-          </h2>
-          <img src=<%=list.photo_url %> alt="dog">
-          <div class="dog-info">
-            <% if (list.adoptable) { %>
-              <h2>
-                Available
-              </h2>
-            <% } else { %>
-              <h2 style="color: red;">
-                Adopted
-              </h2>
-            <% } %>
-              <h2>
-                $<%= list.adoption_fee %>
-              </h2>
-          </div>
-          <footer class="interactions">
-            <button>
-              <a href="/ht_listing_id:<%= list.id %>">MORE INFO</a>
-            </button>
-            <% if (user && user.id) { %>
-              <form method="POST" action="/ht_favourites">
-                <button>
-                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                </button>
-            <% } else { %>
-              <form method="GET" action="/ht_login">
-                <button>
-                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                </button>
-            <% } %>
-          </footer>
-        </article>
-      <% } %>
-    </section>
-  </main>
+    <main>
+      <section class="my-listings">
+
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><h2>Listing</h2></th>
+              <th scope="col"><h2>Name</h2></th>
+              <th scope="col"><h2>Status</h2></th>
+              <th scope="col"><h2>Update Status</h2></th>
+              <th scope="col"><h2>Delete</h2></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let list of listings) { %>
+              <tr class="my-listings">
+                <td>
+                  <img src=<%=list.photo_url %> alt="dog"></td>
+                <td>
+                  <h2><%= list.name %></h2>
+                </td>
+                <td>
+                  <% if (list.adoptable) { %>
+                    <h2>Available</h2>
+                    <% } else { %>
+                      <h2 style="color: red;">
+                        Adopted
+                      </h2>
+                      <% } %>
+                </td>
+                <td class="status">
+                  <form method="POST" action="/mark-as-taken/<%= list.id %>">
+                    <input type="hidden" name="id" value="<%= list.id %>">
+                    <button type="submit" >
+                      Mark as Adopted
+                    </button>
+                  </form>
+                </td>
+                <td class="delete">
+                  <form method="POST" action="/delete-listing/<%= list.id %>">
+                    <input type="hidden" name="id" value="<%= list.id %>">
+                    <button type="submit">
+                      Delete Listing
+                    </button>
+                  </form>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </section>
+    </main>
 </body>
 </html>
