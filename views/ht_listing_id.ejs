@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Meta Information -->
   <title>Listing Information</title>
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 
   <!-- App CSS -->
@@ -15,65 +16,73 @@
   <link rel="stylesheet" href="/styles/nav.css" />
   <link rel="stylesheet" href="/styles/listings.css" />
   <link rel="stylesheet" href="/styles/page-header.css" />
+  <link rel="stylesheet" href="/styles/single-listing.css" />
 
   <!-- External Fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap" />
 
   <!-- CDN libraries -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 </head>
+
 <body>
-  <div><%- include('partials/_header') %></div>
-  <main>
-    <section class="listings">
+  <%- include('partials/_header') %>
+    <main>
+      <section class="single">
         <article>
-          <h2>
-            <%= listings.name %>
-          </h2>
-          <img src=<%=listings.photo_url %> alt="dog">
-          <div class="dog-info">
+          <div class="column">
+            <h1>
+              <%= listings.name %>
+            </h1>
+            <img src=<%=listings.photo_url %> alt="dog">
+          </div>
+
+          <div class="single-dog-info">
+            <h2>Age: <%= listings.age %>
+            </h2>
+            <h2>
+              Breed: <%= listings.breed %>
+            </h2>
+            <h2>
+              About me: <%= listings.description%>
+            </h2>
             <% if (listings.adoptable) { %>
               <h2>
-                Available
+                Status: Available
               </h2>
-            <% } else { %>
-              <h2 style="color: red;">
-                Adopted
-              </h2>
-            <% } %>
-              <h2>
-                $<%= listings.description%>
-              </h2>
-              <h2>
-                $<%= listings.breed %>
-              </h2>
-              <h2>
-                $<%= listings.publish_date %>
-              </h2>
+              <% } else { %>
+                <h2 style="color: red;">
+                  Status: Adopted
+                </h2>
+                <% } %>
+                  <h2 class="publish_date">
+                    Posted: <%= listings.publish_date %>
+                  </h2>
+                  <footer class="interactions">
+                    <% if (user && user.id) { %>
+                      <form method="POST" action="/ht_favourites">
+                        <button>
+                          <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                        </button>
+                        <form method="GET" action="/">
+                          <button>
+                            <a href="/favs">Adopt Me</a>
+                          </button>
+                          <% } %>
+                  </footer>
           </div>
-          <footer class="interactions">
-            <% if (user && user.id) { %>
-              <form method="POST" action="/ht_favourites">
-                <button>
-                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                </button>
-            <% } else { %>
-              <form method="GET" action="/ht_login">
-                <button>
-                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                </button>
-            <% } %>
-          </footer>
         </article>
-    </section>
-  </main>
+      </section>
+    </main>
 </body>
+
 </html>

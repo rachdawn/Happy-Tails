@@ -1,0 +1,52 @@
+.single article {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  height: 500px;
+  min-width: 70%;
+  max-width: 930px;
+  border-radius: 2em;
+}
+
+.single img {
+  height: 300px;
+  width: 400px;
+  border-radius: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
+
+.publish_date {
+  word-wrap: break-word;
+}
+
+.single-dog-info {
+  padding-top: 3em;
+}
+
+.single-dog-info h2 {
+  font-family: "Source Sans 3", sans-serif;
+  padding: 4px;
+}
+
+.single-dog-info.interactions {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding-bottom: 0;
+}
+
+.column h1 {
+  font-family: 'Bungee', sans-serif;
+  text-align: center;
+  margin-top: 0;
+}
+
+

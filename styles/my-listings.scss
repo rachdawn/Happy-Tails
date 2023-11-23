@@ -1,23 +1,32 @@
 .my-listings {
   min-width: 90%;
-  justify-content: first baseline;
 }
 
 table {
   padding: 8px;
+  margin-bottom: 0;
 }
 
 td {
-  padding: 0.7em;
+  padding: 2em;
 }
 
 thead tr {
-  justify-content: space-between;
-  padding: 4px;
-  background-color: rgb(143, 151, 159);
-  color: #ffffff;
+  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(241, 220, 127) 90%);  color: #ffffff;
+
+}
+
+tr {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 8px;
+  background-color: #ffffff;
+  color: slategray;
   border-radius: 16px;
 }
+
+
 
 td img {
   width: 160px;
