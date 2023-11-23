@@ -1,4 +1,4 @@
-INSERT INTO favourites (user_id, listing_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3);
+-- INSERT INTO favourites (user_id, dog_id, liked) VALUES
+-- (1, 1, TRUE),
+-- (2, 2, TRUE),
+-- (3, 3, FALSE);

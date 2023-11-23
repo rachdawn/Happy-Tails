@@ -34,6 +34,46 @@
 <body>
   <%- include('partials/_header') %>
   <main>
+    <section class="listings">
+      <% for (let list of listings) { %>
+        <article>
+          <h2>
+            <%= list.name %>
+          </h2>
+          <img src=<%=list.photo_url %> alt="dog">
+          <div class="dog-info">
+            <% if (list.adoptable) { %>
+              <h2>
+                Available
+              </h2>
+            <% } else { %>
+              <h2 style="color: red;">
+                Adopted
+              </h2>
+            <% } %>
+              <h2>
+                $<%= list.adoption_fee %>
+              </h2>
+          </div>
+          <footer class="interactions">
+            <button>
+              <a href="/ht_listing_id:<%= list.id %>">MORE INFO</a>
+            </button>
+            <% if (user && user.id) { %>
+              <form method="POST" action="/ht_favourites">
+                <button>
+                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                </button>
+            <% } else { %>
+              <form method="GET" action="/ht_login">
+                <button>
+                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                </button>
+            <% } %>
+          </footer>
+        </article>
+      <% } %>
+    </section>
   </main>
 </body>
 </html>

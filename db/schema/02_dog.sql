@@ -9,5 +9,6 @@ CREATE TABLE dogs (
     adoption_fee INT NOT NULL,
     description TEXT,
     photo_url VARCHAR(255) NOT NULL,
-    adoptable BOOLEAN NOT NULL DEFAULT TRUE
+    adoptable BOOLEAN NOT NULL DEFAULT TRUE,
+    publish_date DATE NOT NULL DEFAULT NOW()
 );

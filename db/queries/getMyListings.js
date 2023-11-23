@@ -1,11 +1,11 @@
 const db = require('../connection');
 
-const getListings = (fee) => {
+const getMyListings = (userId) => {
   return db.query(`
   SELECT dogs.*
   FROM dogs
-  WHERE dogs.adoption_fee <= $1
-  ;`, [fee] )
+  WHERE dogs.user_id = $1
+  ;`, [userId] )
     .then(data => {
       return data.rows;
     })
@@ -14,4 +14,4 @@ const getListings = (fee) => {
     });
 };
 
-module.exports = { getListings };
+module.exports = { getMyListings };
