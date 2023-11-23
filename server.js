@@ -64,6 +64,7 @@ const { getMyListings } = require('./db/queries/getMyListings')
 const { findDog } = require('./db/queries/findDog');
 const { deleteListing } = require('./db/queries/deleteListing')
 const { adoptability } = require('./db/queries/availability')
+const { deleteFavorite } = require('./db/queries/deleteFavorite');
 
 app.get('/', (req, res) => {
 
@@ -216,6 +217,21 @@ app.get('/ht_favourites', (req, res) => {
       .status(500)
       .json({ error: err.message });
   });
+});
+
+app.post('/delete-favorite/:id', (req, res) => {
+  const userId = req.session.user.id;
+  const { id } = req.params;
+
+  deleteFavorite(userId, id)
+    .then(() => {
+      console.log('Deleted favorite with dog_id:', id);
+      res.redirect('/ht_favourites');
+    })
+    .catch((error) => {
+      console.log('Error deleting favorite:', error);
+      res.status(500).send('Error deleting favorite');
+    });
 });
 
 app.post('/ht_create_listing', (req, res) => {
