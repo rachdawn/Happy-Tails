@@ -57,6 +57,10 @@ app.use((req, res, next) => {
 const listingsQueries = require('./db/queries/listings');
 const { addUser } = require('./db/queries/register');
 const { getUserByEmail } = require('./db/queries/register-check');
+const { getFavs } = require('./db/queries/favs')
+const { insertFav } = require('./db/queries/favouriteListing')
+const { addListing } = require('./db/queries/createListing')
+const { getMyListings } = require('./db/queries/getMyListings')
 
 app.get('/', (req, res) => {
 
@@ -150,7 +154,8 @@ app.get('/ht_register', (req, res) => {
 });
 
 app.post('/ht_register', (req, res) => {
-  const {username, email, password} = req.body;
+  const {username, email, password, rescuer} = req.body;
+  console.log("rescuer", rescuer);
 
   if (!username || !email || !password) {
     return res.status(400).send("inputs not valid")
@@ -164,7 +169,7 @@ app.post('/ht_register', (req, res) => {
       console.log(user.email)
       return res.status(400).send("email already in use");
     } else {
-      return addUser(username, email, password)
+      return addUser(username, email, password, Boolean(rescuer))
       .then((user) => {
         return res.redirect('/ht_login')
       }).catch(err => {
@@ -176,26 +181,72 @@ app.post('/ht_register', (req, res) => {
 });
 
 app.post('/ht_favourites', (req, res) => {
+  const { id } = req.session.user;
+  console.log(req.body)
 
+  insertFav(id, req.body.dog_id)
+  .then(() => {
+    console.log(id);
+    return;
+  })
 })
 
 // Create Listing Page
 app.get('/ht_create_listing', (req, res) => {
-  res.render('ht_create_listing');
+  res.render('ht_create_listing')
 });
 
 // Favourites Page
 app.get('/ht_favourites', (req, res) => {
-  res.render('ht_favourites');
+  const userId = req.session.user.id;
+
+  getFavs(userId)
+  .then(listings => {
+    const template = { listings };
+    
+    console.log(listings)
+    res.render('ht_favourites', template);
+  })
+  .catch(err => {
+    console.log("coming here")
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+});
+
+app.post('/ht_create_listing', (req, res) => {
+  
+  const { id } = req.session.user;
+  const { name, age, breed, adoption_fee, description, photo_url} = req.body;
+
+  addListing(id, name, age, breed, adoption_fee, description, photo_url)
+  .then((newListing) => {
+    console.log("new listing", newListing)
+    res.redirect('/ht_my_listings')
+  }).catch(err => {
+    console.log("error", err)
+    return res.status(500).send("did not complete listing" + err.message)
+  });
 });
 
 // Listing ID Page
 app.get('/ht_listing_id', (req, res) => {
+
   res.render('ht_listing_id');
 });
 
 // My Listings Page
 app.get('/ht_my_listings', (req, res) => {
-  res.render('ht_my_listings');
+  const { id } = req.session.user;
+  
+  getMyListings(id)
+  .then((listings) => {
+    console.log(listings)
+    res.render('ht_my_listings', { listings });
+  }).catch(err => {
+    console.log("error with your listings" + err.message);
+    res.status(400).send("couldnt find your listings");
+  })
 });
 
