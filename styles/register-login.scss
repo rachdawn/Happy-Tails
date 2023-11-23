@@ -17,13 +17,26 @@
   border: lightgrey;
 }
 
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.checkbox input {
+  font: 1px sans-serif;
+}
+
 .register-login button {
-  margin-top: 1em;
   border-radius: 10px;
   background-color: rgb(211, 180, 226);
   color: #ffffff;
   padding: 0.2em 0.5em;
   cursor: pointer;
   border: none;
+}
 
+#login-button {
+  margin-top: 1em;
 }

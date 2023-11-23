@@ -1,5 +1,7 @@
 #page-header {
-  padding-top: 100px;
+  width: 100%;
+  min-width: fit-content;
+  padding-top: 110px;
   padding-bottom: 40px;
   height: 580px;
   display: flex;
@@ -9,42 +11,61 @@
   background-image: url("https://www.transparenttextures.com/patterns/arches.png");
 }
 
-#about-us {
-  margin-top: 0;
-  width: 45%;
+#page-header div {
+  width: 50%;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 2em;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2em;
-}
-
-#feature {
-  width: 45%;
-  display: flex;
-  margin: 0;
-  padding: 1em;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: first baseline;
 }
 
 #page-header article {
-  margin: 0 auto;
+  min-width: 300px;
+  max-height: 360px;
   padding: 1em;
-  background: rgb(163, 208, 219);
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   display: flex;
   border-radius: 12px;
   text-align: center;
-  min-width: fit-content;
-  max-width: 44%;
+}
+
+#page-header article img {
+  width: 90%;
+  height: 180px;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 20px;
 }
 
 #page-header h2 {
   font-family: 'Bungee', sans-serif;
 }
+
+#about-us {
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+#about-us article {
+  padding-top: 0;
+}
+
+#feature {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#feature article {
+  margin: 0 auto;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: center;
+}
+
 
 

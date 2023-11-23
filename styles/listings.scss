@@ -4,17 +4,19 @@
   padding: 1em;
   display: flex;
   flex-wrap: wrap;
-
   justify-content: center;
+  background: none;
 }
 
 .container {
+  width: 100%;
   background: rgb(163, 208, 219);
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
-.listings article {
-  min-width: 28%;
+ .listings article {
+  width: 275px;
+  height: 350px;
   border: 1px solid rgba(162, 176, 219, 0.958);
   padding-top: 1em;
   padding-left: 0.2em;
@@ -31,10 +33,14 @@ article h2 {
   padding: 0;
 }
 
-article img {
-  width: auto;
+.dog-info h2 {
+  font-family: "Source Sans 3", sans-serif;
+
+}
+
+.listings article img {
+  width: 90%;
   height: 180px;
-  overflow: hidden;
   padding: 0.5em;
   margin-bottom: 1em;
   border-radius: 20px;
