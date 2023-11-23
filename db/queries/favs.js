@@ -1,12 +1,13 @@
 const db = require('../connection');
 
-const getFavs = (check) => {
+const getFavs = (user) => {
   return db.query(`
-  SELECT listings.*, dogs.name, dogs.adoption_fee, dogs.photo_url
-  FROM listings
+  SELECT favourites.*, dogs.name, dogs.adoptable, dogs.photo_url, dogs.adoption_fee
+  FROM favourites
   JOIN dogs ON dog_id = dogs.id
-  WHERE listings.check = $1
-  ;`, [check] )
+  WHERE favourites.liked = TRUE
+  AND favourites.user_id = $1
+  ;`, [user])
     .then(data => {
       return data.rows;
     })

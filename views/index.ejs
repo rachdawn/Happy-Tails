@@ -92,7 +92,7 @@
                   <h2>
                     Available
                   </h2>
-                <% } else { %>
+                <%} else { %>
                   <h2 style="color: red;">
                     Adopted
                   </h2>
@@ -107,14 +107,11 @@
                 </button>
                 <% if (user && user.id) { %>
                   <form method="POST" action="/ht_favourites">
-                    <button>
-                      <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                    <input type="hidden" name="dog_id" value="<%= list.id %>">
+                    <button type="submit">  
+                      <i class="fa-solid fa-heart"></i>
                     </button>
-                <% } else { %>
-                  <form method="GET" action="/ht_login">
-                    <button>
-                      <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                    </button>
+                  </form>
                 <% } %>
               </footer>
             </article>

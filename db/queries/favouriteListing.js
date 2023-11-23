@@ -1,11 +1,11 @@
 const db = require('../connection');
 
-const getListings = (fee) => {
+const insertFav = (user, dog) => {
   return db.query(`
-  SELECT dogs.*
-  FROM dogs
-  WHERE dogs.adoption_fee <= $1
-  ;`, [fee] )
+  INSERT INTO favourites (user_id, dog_id, liked) 
+  VALUES
+  ($1, $2, true)
+  ;`, [user, dog])
     .then(data => {
       return data.rows;
     })
@@ -14,4 +14,4 @@ const getListings = (fee) => {
     });
 };
 
-module.exports = { getListings };
+module.exports = { insertFav };

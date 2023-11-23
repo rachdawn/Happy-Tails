@@ -6,6 +6,7 @@
   </div>
   <div class="nav-interactions">
     <% if (user && user.id) { %>
+      <% if (user.is_admin) { %>
       <form method="GET" action="/ht_my_listings">
         <button class="user-functions">
           <span>
@@ -22,6 +23,7 @@
           </span>
         </button>
       </form>
+      <% } %>
       <form method="GET" action="/ht_favourites">
         <button class="user-functions">
           <span>
