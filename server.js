@@ -61,6 +61,7 @@ const { getFavs } = require('./db/queries/favs')
 const { insertFav } = require('./db/queries/favouriteListing')
 const { addListing } = require('./db/queries/createListing')
 const { getMyListings } = require('./db/queries/getMyListings')
+const { findDog } = require('./db/queries/findDog');
 
 app.get('/', (req, res) => {
 
@@ -250,3 +251,19 @@ app.get('/ht_my_listings', (req, res) => {
   })
 });
 
+
+app.get('/ht_listing/:id', (req, res) => {
+
+  const { id } = req.params;
+  console.log("id", id)
+
+  findDog(id)
+  .then((listings) => {
+    console.log("dog info: ", listings);
+    res.render('ht_listing_id',  { listings });
+  })
+  .catch((error) => {
+    console.error(error);
+    res.status(404).send('Dog not found');
+  });
+});
