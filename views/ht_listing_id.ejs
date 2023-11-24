@@ -33,6 +33,7 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
   <script src="/scripts/client.js"></script>
+
 </head>
 
 <body>
@@ -74,8 +75,9 @@
                   <footer class="interactions">
                     <% if (user && user.id) { %>
                       <form method="POST" action="/ht_favourites">
-                        <button>
-                          <a href="/favs"><i class="fa-solid fa-heart"></i></a>
+                        <input type="hidden" name="dog_id" value="<%= listings.id %>">
+                        <button type="submit">
+                          <i class="fa-solid fa-heart"></i>
                         </button>
                       </form>
                         <form method="GET" action="/">

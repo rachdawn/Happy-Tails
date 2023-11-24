@@ -5,7 +5,7 @@ const dogOfDay = () => {
   WITH DOGGY AS (
     SELECT *
     FROM dogs
-    WHERE name IS NOT NULL
+    WHERE name IS NOT NULL AND adoptable = true
     ORDER BY random()
     LIMIT 1
   )
