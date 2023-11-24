@@ -14,6 +14,8 @@ const app = express();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhone = process.env.TWILIO_PHONE
+const phone = process.env.PHONE
+
 const client = require('twilio')(accountSid, authToken);
 
 app.set('view engine', 'ejs');
@@ -96,10 +98,11 @@ app.get('/', (req, res) => {
     console.log(number)
     listingsQueries.getListings(number)
       .then(listings => {
-        const template = { listings };
-
-        console.log("here ", listings)
-        res.render('index', template);
+        dogOfDay()
+        .then(dog => {
+          const template = { listings, dog };
+          res.render('index', template);
+        })
       })
       .catch(err => {
         console.log("coming here")
@@ -327,7 +330,7 @@ app.get('/', (req, res) => {
       .create({
         body: message + " FROM " + username,
         from: twilioPhone,
-        to: ''
+        to: phone
       })
       .then(message => console.log(message.sid))
       .catch(err => console.log("error with messageing", err.message))

@@ -11,11 +11,11 @@ $(document).ready(() => {
      })
      .then(function(res) {
        $('#message').val("");
-       alert('SMS send succesfully');
+       alert('SMS send successfully');
      }) 
      .catch(function(error) {
        console.log("error", error.message);
        alert('error sending SMS');
      })
    });
- })
+ });
