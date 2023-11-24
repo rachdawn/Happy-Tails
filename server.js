@@ -11,6 +11,11 @@ const cookieSession = require('cookie-session')
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const twilioPhone = process.env.TWILIO_PHONE
+const client = require('twilio')(accountSid, authToken);
+
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -311,3 +316,17 @@ app.post('/mark-as-taken/:id', (req, res) => {
     console.log("error with marking dog" + error.message)
   })
 });
+
+app.post('/send', (req, res) => {
+  const username = req.session.user.username;
+  const message = req.body.messages;
+
+  client.messages
+    .create({
+       body: message + " FROM " + username,
+       from: twilioPhone,
+       to: ''
+     })
+    .then(message => console.log(message.sid))
+    .catch(err => console.log("error with messageing", err.message))
+})
