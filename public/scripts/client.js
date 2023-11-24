@@ -9,13 +9,13 @@ $(document).ready(() => {
        url: "/send",
        data: {messages: message}
      })
-     .then(function(res) {
+     .then(() => {
        $('#message').val("");
-       alert('SMS send successfully');
+       alert('SMS sent successfully');
      }) 
      .catch(function(error) {
        console.log("error", error.message);
-       alert('error sending SMS');
-     })
-   });
- });
+       alert('Error sending SMS');
+     });
+  });
+});

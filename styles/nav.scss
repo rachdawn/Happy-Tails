@@ -1,7 +1,8 @@
 .page-nav {
   display: flex;
   height: 100px;
-  background: linear-gradient(109.6deg, rgb(249, 206, 97) 11.2%, rgb(255, 179, 27) 91.1%);  padding-left: 0.5em;
+  background: linear-gradient(109.6deg, rgb(249, 206, 97) 11.2%, rgb(255, 179, 27) 91.1%);
+  padding-left: 0.5em;
   padding-right: 1.5em;
   justify-content: space-between;
   top: 0;
@@ -33,12 +34,6 @@
   align-items: center;
 }
 
-.page-nav p {
-  color: #ADE0F7;
-  margin: 0;
-  font-size: 1em;
-}
-
 .nav-interactions button {
   background: none;
   color: #ffffff;
@@ -63,7 +58,7 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(109.6deg, rgb(249, 206, 97) 11.2%, rgb(255, 179, 27) 91.1%);  padding-left: 0.5em;
+  background: linear-gradient(109.6deg, rgb(249, 206, 97) 11.2%, rgb(255, 179, 27) 91.1%);
   padding: 1em;
 }
 
