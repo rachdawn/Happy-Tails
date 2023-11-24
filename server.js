@@ -98,7 +98,7 @@ app.get('/', (req, res) => {
     console.log(number)
     listingsQueries.getListings(number)
       .then(listings => {
-        dogOfDay()
+       dogOfDay()
         .then(dog => {
           const template = { listings, dog };
           res.render('index', template);
@@ -332,6 +332,8 @@ app.get('/', (req, res) => {
         from: twilioPhone,
         to: phone
       })
-      .then(message => console.log(message.sid))
+      .then(() =>  {
+        res.status(200).json({ success: true, message: 'SMS sent successfully' });
+      })
       .catch(err => console.log("error with messageing", err.message))
   })
