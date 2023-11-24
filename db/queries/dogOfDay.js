@@ -1,12 +1,25 @@
 const db = require('../connection');
 
-const dogOfDay = (id) => {
+const dogOfDay = () => {
   return db.query(`
-  SELECT * FROM dogs
-  WHERE name IS NOT NULL
-  OFFSET random() * (SELECT count(*) FROM dogs WHERE name IS NOT NULL)
-  LIMIT 1;
-  `, [id])
+  WITH DOGGY AS (
+    SELECT *
+    FROM dogs
+    WHERE name IS NOT NULL
+    ORDER BY random()
+    LIMIT 1
+  )
+  SELECT *
+  FROM DOGGY
+  WHERE EXISTS (
+  SELECT 1
+  FROM dogs
+  WHERE dogs.id = DOGGY.id
+  )
+  ;`)
+  .then((data) => {
+    return data.rows[0];
+  })
   .catch(error => {
     console.log("Error from deleteListing:", error);
     throw error;

@@ -49,24 +49,39 @@
           </article>
         </div>
         <div id="feature">
-          <h2>dog of the day</h2>
+          <h2>Adoption Spotlight</h2>
           <article>
-            <img
-              src="https://assets-global.website-files.com/60cd7ae35efaf14623f555c5/63750d9abc877e00efff1906_golden-retriever-service-dog-everything-you-need-to-know.jpg"
-              alt="dog">
-            <div>
-              <h2>
-                NAME
-              </h2>
-              <footer class="interactions">
-                <button>
-                  MORE INFO
-                </button>
-                <button>
-                  <a href="/favs"><i class="fa-solid fa-heart"></i></a>
-                </button>
-              </footer>
+            <h2>
+              <%= dog.name %>
+            </h2>
+            <img src=<%=dog.photo_url %> alt="dog">
+            <div class="dog-info">
+              <% if (dog.adoptable) { %>
+                <h2>
+                  Available
+                </h2>
+              <%} else { %>
+                <h2 style="color: red;">
+                  Adopted
+                </h2>
+              <% } %>
+                <h2>
+                  $<%= dog.adoption_fee %>
+                </h2>
             </div>
+            <footer class="interactions">
+              <button>
+                <a href="/ht_listing/<%= dog.id %>">MORE INFO</a>
+              </button>
+              <% if (user && user.id) { %>
+                <form method="POST" action="/ht_favourites">
+                  <input type="hidden" name="dog_id" value="<%= dog.id %>">
+                  <button type="submit">  
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                </form>
+              <% } %>
+            </footer>
           </article>
         </div>
       </header>
