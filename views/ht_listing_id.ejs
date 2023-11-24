@@ -54,7 +54,10 @@
               Breed: <%= listings.breed %>
             </h2>
             <h2>
-              About me: <%= listings.description%>
+              About Me: <%= listings.description%>
+            </h2>
+            <h2>
+              Adoption Fee: <%= listings.adoption_fee %>
             </h2>
             <% if (listings.adoptable) { %>
               <h2>
@@ -85,12 +88,14 @@
           </div>
         </article>
       </section>
+      <% if (user && user.id) { %>
       <section id="message-bar">
         <form id="send-message" method="post" action="/send">
           <textarea id="message" placeholder="enter message"></textarea>
           <button>Send</button>
         </form>
         </section>
+        <% } %>
     </main>
 </body>
 
