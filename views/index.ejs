@@ -55,7 +55,7 @@
               <%= dog.name %>
             </h2>
             <img src=<%=dog.photo_url %> alt="dog">
-            <!-- <div class="dog-info">
+            <div id="spotlight-dog-info">
               <% if (dog.adoptable) { %>
                 <h2>
                   Available
@@ -68,7 +68,7 @@
                 <h2>
                   $<%= dog.adoption_fee %>
                 </h2>
-            </div> -->
+            </div>
             <footer class="interactions">
               <button>
                 <a href="/ht_listing/<%= dog.id %>">MORE INFO</a>

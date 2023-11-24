@@ -1,15 +1,18 @@
 .my-listings {
   min-width: 90%;
 }
-
+.my-listings section {
+  margin-top: 100px;
+}
 table {
   padding: 8px;
-  margin-bottom: 0;
+  // margin-bottom: 0;
 }
 
 td {
   padding: 2em;
 }
+
 
 thead tr {
   background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(241, 220, 127) 90%);  color: #ffffff;
@@ -23,6 +26,7 @@ tr {
   background-color: #ffffff;
   color: slategray;
   border-radius: 16px;
+  border: 2px slategray;
 }
 
 td img {
