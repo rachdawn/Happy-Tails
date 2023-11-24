@@ -1,7 +1,6 @@
 .create-listing form {
   display: flex;
   flex-direction: column;
-  border: lightgrey;
   font-size: 1.5em;
 }
 
@@ -10,7 +9,6 @@
   padding: 0.2em 0.5em;
   width: 24em;
   cursor: pointer;
-  border: solid 2px lightgrey;
 }
 
 .create-listing textarea {
@@ -18,7 +16,6 @@
   padding: 0.2em 0.5em;
   width: 24em;
   cursor: pointer;
-  border: solid 2px lightgrey;
 }
 
 .create-listing button {
@@ -28,7 +25,6 @@
   color: #ffffff;
   padding: 0.2em 0.5em;
   cursor: pointer;
-  border: none;
 }
 
 .create-listing h1 {

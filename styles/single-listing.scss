@@ -1,4 +1,5 @@
 .single article {
+  padding-top: 0;
   margin: 20px;
   display: flex;
   flex-direction: row;
@@ -20,7 +21,7 @@
 .column {
   display: flex;
   flex-direction: column;
-  padding: 2em;
+  padding: 1em;
 }
 
 .publish_date {
@@ -28,7 +29,7 @@
 }
 
 .single-dog-info {
-  padding-top: 3em;
+  padding-top: 4em;
 }
 
 .single-dog-info h2 {
@@ -49,4 +50,31 @@
   margin-top: 0;
 }
 
+#message {
+  width: 600px;
+  border-radius: 16px;
+  margin-right: 20px;
+  padding: 1em;
+}
 
+#send-message {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 20px auto;
+  max-height: 200px;
+  justify-content: center;
+
+}
+
+#send {
+  background-color: rgb(211, 180, 226);
+  color: #fff;
+  width: 8em;
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.5em;
+  border-radius: 16px;
+  padding: 1em;
+  justify-content: center;
+  cursor: pointer;
+}
