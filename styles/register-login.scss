@@ -1,7 +1,6 @@
 .register-login form {
   display: flex;
   flex-direction: column;
-  border: lightgrey;
   font-size: 1.5em;
 }
 
@@ -14,7 +13,6 @@
   padding: 0.2em 0.5em;
   width: 24em;
   cursor: pointer;
-  border: lightgrey;
 }
 
 .checkbox {
@@ -34,7 +32,7 @@
   color: #ffffff;
   padding: 0.2em 0.5em;
   cursor: pointer;
-  border: none;
+
 }
 
 #login-button {
