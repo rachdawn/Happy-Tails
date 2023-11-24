@@ -11,10 +11,6 @@ const cookieSession = require('cookie-session')
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-const accountSid = 'AC1e4f9faf9fea2ac0406cf12180f4bb15';
-const authToken = 'f600591d67096d2240bd539757b13af4';
-const client = require('twilio')(accountSid, authToken);
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -280,7 +276,6 @@ app.get('/ht_listing/:id', (req, res) => {
 
   findDog(id)
   .then((listings) => {
-    
     console.log("dog info: ", listings);
     res.render('ht_listing_id',  { listings });
   })
@@ -316,18 +311,3 @@ app.post('/mark-as-taken/:id', (req, res) => {
     console.log("error with marking dog" + error.message)
   })
 });
-
-
-app.post('/send', (req, res) => {
-  const username = req.session.user.username;
-  const message = req.body.messages;
-
-  client.messages
-    .create({
-       body: message + " FROM " + username,
-       from: '+17024202054',
-       to: '+17783028595'
-     })
-    .then(message => console.log(message.sid))
-    .catch(err => console.log("error with messageing", err.message))
-})
