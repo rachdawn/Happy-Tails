@@ -13,7 +13,6 @@ td {
 
 thead tr {
   background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(241, 220, 127) 90%);  color: #ffffff;
-
 }
 
 tr {
@@ -26,8 +25,6 @@ tr {
   border-radius: 16px;
 }
 
-
-
 td img {
   width: 160px;
   max-height: 160px;
@@ -39,6 +36,7 @@ td img {
   color: #ffffff;
   padding: 0.5em;
   border-radius: 16px;
+  cursor: pointer;
   border: none;
 }
 
@@ -47,6 +45,7 @@ td img {
   color: #ffffff;
   padding: 0.5em;
   border-radius: 16px;
+  cursor: pointer;
   border: none;
 
 }

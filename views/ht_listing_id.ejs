@@ -57,7 +57,7 @@
               About Me: <%= listings.description%>
             </h2>
             <h2>
-              Adoption Fee: <%= listings.adoption_fee %>
+              Adoption Fee: $<%= listings.adoption_fee %>
             </h2>
             <% if (listings.adoptable) { %>
               <h2>
@@ -80,7 +80,7 @@
                       </form>
                         <form method="GET" action="/">
                           <button>
-                            <a href="/favs">Adopt Me</a>
+                            <a href="#message">Contact Rescue Organization</a>
                           </button>
                         </form>
                           <% } %>
@@ -89,12 +89,12 @@
         </article>
       </section>
       <% if (user && user.id) { %>
-      <section id="message-bar">
+      <div id="message-bar">
         <form id="send-message" method="post" action="/send">
-          <textarea id="message" placeholder="enter message"></textarea>
-          <button>Send</button>
+          <textarea id="message" placeholder="Write a message to the rescue organization for any inquiries or to adopt this dog..."></textarea>
+          <button id="send">Send</button>
         </form>
-        </section>
+        </div>
         <% } %>
     </main>
 </body>
