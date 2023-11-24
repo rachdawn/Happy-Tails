@@ -32,6 +32,7 @@
   <!-- App JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/client.js"></script>
 </head>
 
 <body>
@@ -73,15 +74,23 @@
                         <button>
                           <a href="/favs"><i class="fa-solid fa-heart"></i></a>
                         </button>
+                      </form>
                         <form method="GET" action="/">
                           <button>
                             <a href="/favs">Adopt Me</a>
                           </button>
+                        </form>
                           <% } %>
                   </footer>
           </div>
         </article>
       </section>
+      <section id="message-bar">
+        <form id="send-message" method="post" action="/send">
+          <textarea id="message" placeholder="enter message"></textarea>
+          <button>Send</button>
+        </form>
+        </section>
     </main>
 </body>
 
