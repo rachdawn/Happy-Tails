@@ -36,28 +36,31 @@
 <body>
   <%- include('partials/_header') %>
 
-      <header id="page-header">
-        <div id="about-us">
-          <h2>about us</h2>
-          <article>
+      <header class="page-header">
+        <div class="about-us">
+          <!-- <article> -->
+            <!-- <h2>about us</h2> -->
             <p>
               Happy Tails Rescue Hub was created for the purpose of streamlining the process of connecting adoptable
-              dogs with their fur-ever families. As avid dog lovers and supporters of the rescue community, we aim to
-              increase exposure for local rescues by providing a central hub for those who are looking to adopt a furry
-              friend.
+              dogs with their fur-ever families. As avid dog lovers and supporters of the rescue community, our aim is to
+              increase exposure for local rescues by providing a convenient central hub for those who are looking to adopt a furry
+              friend. 🐾
             </p>
-          </article>
+          <!-- </article> -->
         </div>
-        <div id="feature">
-          <h2>Adoption Spotlight</h2>
+        <div class="feature">
+          <h2 class="feature-title">Adoption Spotlight</h2>
           <article>
             <h2>
               <%= dog.name %>
             </h2>
-            <img src=<%=dog.photo_url %> alt="dog">
-            <div id="spotlight-dog-info">
+            <h5>
+              <%= dog.breed %>
+            </h5>
+            <img src=<%=dog.photo_url %> alt="photo of adoptable dog">
+            <div class="dog-info">
               <% if (dog.adoptable) { %>
-                <h2>
+                <h2 style="color: green;">
                   Available
                 </h2>
               <%} else { %>
@@ -87,9 +90,9 @@
       </header>
       <main class="container">
         <nav class="filterBar">
-          <h2>Adoptable Dogs</h2>
+          <h2><i class="fa-solid fa-paw"></i> Adoptable Dogs</h2>
           <form class="form-group" action="/" method="POST">
-            <label for="filter">Filter by Adoption Fee:
+            <label for="filter">Filter by Adoption Fee:  $
               <input type="number" name="number" id="filter" placeholder="maximum fee">
               <button type="submit">Submit</button>
             </label>
@@ -101,11 +104,14 @@
               <h2>
                 <%= list.name %>
               </h2>
-              <img src=<%=list.photo_url %> alt="dog">
+              <h5>
+                <%= list.breed %>
+              </h5>
+              <img src=<%=list.photo_url %> alt="photo of adoptable dog">
               <div class="dog-info">
                 <% if (list.adoptable) { %>
-                  <h2>
-                    Available
+                  <h2 style="color: green;">
+                    Adoptable
                   </h2>
                 <%} else { %>
                   <h2 style="color: red;">

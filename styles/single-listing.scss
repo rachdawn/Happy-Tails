@@ -1,27 +1,50 @@
-.single article {
-  padding-top: 0;
-  margin: 20px;
+main {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(239, 239, 238);
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+
+.single {
+  padding-top: 4rem;
+  margin: 3rem auto;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  height: 500px;
-  min-width: 70%;
-  max-width: 930px;
   border-radius: 2em;
-}
+  article {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    height: 500px;
 
-.single img {
-  height: 300px;
-  width: 400px;
-  border-radius: 16px;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  img {
+    height: 18rem;
+    max-width: 18rem;
+    border-radius: 1rem;
+  }
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  margin: 0;
+  padding: 1rem;
+  h1 {
+    font-family: 'Bungee', sans-serif;
+    text-align: center;
+  }
 }
 
 .publish_date {
@@ -29,7 +52,7 @@
 }
 
 .single-dog-info {
-  padding-top: 4em;
+  padding-top: 1rem;
 }
 
 .single-dog-info h2 {
@@ -44,37 +67,38 @@
   padding-bottom: 0;
 }
 
-.column h1 {
-  font-family: 'Bungee', sans-serif;
-  text-align: center;
-  margin-top: 0;
-}
 
-#message {
-  width: 600px;
-  border-radius: 16px;
-  margin-right: 20px;
-  padding: 1em;
-}
 
-#send-message {
+#message-bar {
   display: flex;
-  flex-direction: row;
-  width: 70%;
-  margin: 20px auto;
-  max-height: 200px;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
 
-}
+    #send-message {
+      display: flex;
+      flex-direction: row;
+      margin: 1rem auto;
+      justify-content: center;
 
-#send {
-  background-color: rgb(211, 180, 226);
-  color: #fff;
-  width: 8em;
-  font-family: 'Bungee', sans-serif;
-  font-size: 1.5em;
-  border-radius: 16px;
-  padding: 1em;
-  justify-content: center;
-  cursor: pointer;
+      #message {
+        width: 40rem;
+        border-radius: 16px;
+        padding: 2rem;
+      }
+
+      #send {
+        background-color: rgb(211, 180, 226);
+        color: #fff;
+        height: 3rem;
+        font-family: 'Bungee', sans-serif;
+        font-size: 1.5em;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 0 1rem;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
 }

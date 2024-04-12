@@ -7,7 +7,8 @@ body {
   font-family: "Source Sans 3", sans-serif;
   font-weight: 600;
   background: rgb(163, 208, 219);
-  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background: linear-gradient(to top, #fff1eb 100%, #ace0f9 50%);
+  background-repeat: no-repeat;
 }
 
 
