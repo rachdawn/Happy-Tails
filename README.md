@@ -1,6 +1,10 @@
 Happy Tails
 =========
 
+!["Landing Page"](https://github.com/rachdawn/Happy-Tails/blob/master/project-screenshots/LandingPage.png?raw=true)
+
+!["Listings"](https://github.com/rachdawn/Happy-Tails/blob/master/project-screenshots/Listings.png?raw=true)
+
 ## Project Setup
 
 To set up the project locally:
