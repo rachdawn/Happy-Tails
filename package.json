@@ -1,5 +1,5 @@
 {
-  "name": "node-skeleton",
+  "name": "happy-tails",
   "version": "1.0.0",
   "description": "",
   "main": "test-server.js",
@@ -9,7 +9,7 @@
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "db:reset": "node bin/resetdb.js"
   },
-  "author": "Lighthouse Labs",
+  "author": "Rachel Little",
   "license": "ISC",
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
