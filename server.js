@@ -63,30 +63,30 @@ app.use((req, res, next) => {
 });
 
 
-app.get("/", async (req, res) => {
-  try {
-    // Use the 'db' pool from connection.js
-    const listings = await listingsQueries.getListings(200000, db); // Pass db to the query function
-    const dog = await dogOfDay(db); // Pass db to the query function
-    const template = { listings, dog };
-    res.render("index", template);
+// app.get("/", async (req, res) => {
+//   try {
+//     // Use the 'db' pool from connection.js
+//     const listings = await listingsQueries.getListings(200000, db); // Pass db to the query function
+//     const dog = await dogOfDay(db); // Pass db to the query function
+//     const template = { listings, dog };
+//     res.render("index", template);
 
-  } catch (error) {
-    // ... error handling
-  }
-});
+//   } catch (error) {
+//     // ... error handling
+//   }
+// });
 
-app.post("/", async (req, res) => {
-  try {
-    const { number } = req.body;
-    const listings = await listingsQueries.getListings(number, db); // Pass db to the query function
-    const dog = await dogOfDay(db); // Pass db to the query function
-    const template = { listings, dog };
-    res.render("index", template);
-  } catch (error) {
-    // ... error handling
-  }
-});
+// app.post("/", async (req, res) => {
+//   try {
+//     const { number } = req.body;
+//     const listings = await listingsQueries.getListings(number, db); // Pass db to the query function
+//     const dog = await dogOfDay(db); // Pass db to the query function
+//     const template = { listings, dog };
+//     res.render("index", template);
+//   } catch (error) {
+//     // ... error handling
+//   }
+// });
 
 // Home page
 // Warning: avoid creating more routes in this file!
