@@ -30,8 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   "/styles",
   sassMiddleware({
-    source: __dirname + "/styles",
-    destination: __dirname + "/public/styles",
+    source: `${__dirname}/styles`,
+    destination: `${__dirname}/public/styles`,
     isSass: false, // false => scss, true => sass
   })
 );
@@ -155,9 +155,8 @@ app.post("/ht_login", (req, res) => {
       if (user.password === password) {
         req.session.user = user;
         return res.redirect("/");
-      } else {
-        return res.status(401).send("wrong password");
       }
+      return res.status(401).send("wrong password");
     })
     .catch((error) => {
       console.error("Login error:", error);
@@ -193,19 +192,18 @@ app.post("/ht_register", (req, res) => {
   //check if user exists
   return getUserByEmail(email).then((user) => {
     console.log(email);
-    if (user && user.email) {
+    if (user?.email) {
       console.log(user.email);
-      return res.status(400).send("email already in use");
-    } else {
-      return addUser(username, email, password, Boolean(rescuer))
-        .then((user) => {
-          return res.redirect("/ht_login");
-        })
-        .catch((err) => {
-          console.log("error", err);
-          return res.status(500).send("please try again");
-        });
+      return res.status(400).send("This email is already registered");
     }
+    return addUser(username, email, password, Boolean(rescuer))
+      .then((user) => {
+        return res.redirect("/ht_login");
+      })
+      .catch((err) => {
+        console.log("error", err);
+        return res.status(500).send("Please try again");
+      });
   });
 });
 
@@ -267,7 +265,7 @@ app.post("/ht_create_listing", (req, res) => {
     })
     .catch((err) => {
       console.log("error", err);
-      return res.status(500).send("did not complete listing" + err.message);
+      return res.status(500).send(`Did not complete listing: ${err.message}`);
     });
 });
 
@@ -286,7 +284,7 @@ app.get("/ht_my_listings", (req, res) => {
       res.render("ht_my_listings", { listings });
     })
     .catch((err) => {
-      console.log("error with your listings" + err.message);
+      console.log(`error with your listings: ${err.message}`);
       res.status(400).send("couldnt find your listings");
     });
 });
@@ -330,7 +328,7 @@ app.post("/mark-as-taken/:id", (req, res) => {
       res.redirect("/ht_my_listings");
     })
     .catch((error) => {
-      console.log("error with marking dog" + error.message);
+      console.log(`error with marking dog: ${error.message}`);
     });
 });
 
@@ -340,7 +338,7 @@ app.post("/send", (req, res) => {
 
   client.messages
     .create({
-      body: message + " FROM " + username,
+      body: `${message} FROM ${username}`,
       from: twilioPhone,
       to: phone,
     })
