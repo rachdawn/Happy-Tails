@@ -1,27 +1,17 @@
-// PG database client/connection setup
 const { Pool } = require('pg');
 
 const db = new Pool({
   connectionString: process.env.DATABASE_URL,
+  // ssl: { // Important for Neon!
+  //   rejectUnauthorized: false, // For development. In production, get a proper cert.
+  // },
 });
 
-// const dbParams = {
-//   host: process.env.DB_HOST,
-//   port: process.env.DB_PORT,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASS,
-//   database: process.env.DB_NAME
-// };
-
-
-// const db = new Pool(dbParams);
-// console.log("db params djhad", dbParams);
-
-try {
-  db.connect();
-} catch (e) {
-  console.log(e);
-}
+// Optional: Test the connection (good practice)
+db.connect()
+  .then(() => console.log("Connected to PostgreSQL database"))
+  .catch(err => console.error("Error connecting to PostgreSQL:", err));
 
 
 module.exports = db;
+
