@@ -12,6 +12,7 @@
   "author": "Lighthouse Labs",
   "license": "ISC",
   "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
     "chalk": "^2.4.2",
     "cookie-session": "^2.0.0",
     "dotenv": "^2.0.0",
