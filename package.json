@@ -2,10 +2,10 @@
   "name": "happy-tails",
   "version": "1.0.0",
   "description": "",
-  "main": "test-server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node test-server.js",
+    "start": "node server.js",
     "local": "./node_modules/.bin/nodemon -L --ignore public/",
     "db:reset": "node bin/resetdb.js"
   },
