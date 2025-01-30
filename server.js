@@ -137,16 +137,16 @@ app.listen(PORT, () => {
 // MOVE THESE LATER
 
 // Login Page
-app.get("/ht_login", (req, res) => {
+app.get("/login", (req, res) => {
   const userId = req.session.user_id;
 
   if (userId) {
     return res.redirect("/");
   }
-  res.render("ht_login");
+  res.render("login");
 });
 
-app.post("/ht_login", (req, res) => {
+app.post("/login", (req, res) => {
   //select query with email
   const { email, password } = req.body;
 
@@ -165,23 +165,23 @@ app.post("/ht_login", (req, res) => {
 });
 
 // Logout function
-app.post("/ht_logout", (req, res) => {
+app.post("/logout", (req, res) => {
   req.session = null;
-  res.redirect("/ht_login");
+  res.redirect("/login");
 });
 
 // Register Page
-app.get("/ht_register", (req, res) => {
+app.get("/register", (req, res) => {
   const userId = req.session.user_id;
 
   if (userId) {
     res.redirect("/");
   } else {
-    res.render("ht_register");
+    res.render("register");
   }
 });
 
-app.post("/ht_register", (req, res) => {
+app.post("/register", (req, res) => {
   const { username, email, password, rescuer } = req.body;
   console.log("rescuer", rescuer);
 
@@ -198,7 +198,7 @@ app.post("/ht_register", (req, res) => {
     }
     return addUser(username, email, password, Boolean(rescuer))
       .then((user) => {
-        return res.redirect("/ht_login");
+        return res.redirect("/login");
       })
       .catch((err) => {
         console.log("error", err);
@@ -207,7 +207,7 @@ app.post("/ht_register", (req, res) => {
   });
 });
 
-app.post("/ht_favourites", (req, res) => {
+app.post("/favourites", (req, res) => {
   const { id } = req.session.user;
   console.log(req.body);
 
@@ -218,12 +218,12 @@ app.post("/ht_favourites", (req, res) => {
 });
 
 // Create Listing Page
-app.get("/ht_create_listing", (req, res) => {
-  res.render("ht_create_listing");
+app.get("/create_listing", (req, res) => {
+  res.render("create_listing");
 });
 
 // Favourites Page
-app.get("/ht_favourites", (req, res) => {
+app.get("/favourites", (req, res) => {
   const userId = req.session.user.id;
 
   getFavs(userId)
@@ -231,7 +231,7 @@ app.get("/ht_favourites", (req, res) => {
       const template = { listings };
 
       console.log(listings);
-      res.render("ht_favourites", template);
+      res.render("favourites", template);
     })
     .catch((err) => {
       console.log("coming here");
@@ -246,7 +246,7 @@ app.post("/delete-favorite/:id", (req, res) => {
   deleteFavorite(userId, id)
     .then(() => {
       console.log("Deleted favorite with dog_id:", id);
-      res.redirect("/ht_favourites");
+      res.redirect("/favourites");
     })
     .catch((error) => {
       console.log("Error deleting favorite:", error);
@@ -254,14 +254,14 @@ app.post("/delete-favorite/:id", (req, res) => {
     });
 });
 
-app.post("/ht_create_listing", (req, res) => {
+app.post("/create_listing", (req, res) => {
   const { id } = req.session.user;
   const { name, age, breed, adoption_fee, description, photo_url } = req.body;
 
   addListing(id, name, age, breed, adoption_fee, description, photo_url)
     .then((newListing) => {
       console.log("new listing", newListing);
-      res.redirect("/ht_my_listings");
+      res.redirect("/my_listings");
     })
     .catch((err) => {
       console.log("error", err);
@@ -270,18 +270,18 @@ app.post("/ht_create_listing", (req, res) => {
 });
 
 // Listing ID Page
-app.get("/ht_listing_id", (req, res) => {
-  res.render("ht_listing_id");
+app.get("/listing_id", (req, res) => {
+  res.render("listing_id");
 });
 
 // My Listings Page
-app.get("/ht_my_listings", (req, res) => {
+app.get("/my_listings", (req, res) => {
   const { id } = req.session.user;
 
   getMyListings(id)
     .then((listings) => {
       console.log(listings);
-      res.render("ht_my_listings", { listings });
+      res.render("my_listings", { listings });
     })
     .catch((err) => {
       console.log(`error with your listings: ${err.message}`);
@@ -289,14 +289,14 @@ app.get("/ht_my_listings", (req, res) => {
     });
 });
 
-app.get("/ht_listing/:id", (req, res) => {
+app.get("/listing/:id", (req, res) => {
   const { id } = req.params;
   console.log("id", id);
 
   findDog(id)
     .then((listings) => {
       console.log("dog info: ", listings);
-      res.render("ht_listing_id", { listings });
+      res.render("listing_id", { listings });
     })
     .catch((error) => {
       console.error(error);
@@ -312,7 +312,7 @@ app.post("/delete-listing/:id", (req, res) => {
   deleteListing(id)
     .then(() => {
       console.log("Deleted dog with id:", id);
-      res.redirect("/ht_my_listings");
+      res.redirect("/my_listings");
     })
     .catch((error) => {
       console.log("Error deleting dog:", error);
@@ -325,7 +325,7 @@ app.post("/mark-as-taken/:id", (req, res) => {
 
   adoptability(id)
     .then(() => {
-      res.redirect("/ht_my_listings");
+      res.redirect("/my_listings");
     })
     .catch((error) => {
       console.log(`error with marking dog: ${error.message}`);

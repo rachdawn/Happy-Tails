@@ -1,13 +1,19 @@
 <nav class="page-nav">
   <div id="logo">
     <a href="/">
-      <h1>happy tails <i class="fa-solid fa-dog"></i></h1>
+      <span>
+        <div>
+          <h1>happy tails</h1>
+          <h4>rescue hub</h4>
+        </div>
+        <i class="fa-solid fa-dog"></i>
+      </span>
     </a>
   </div>
   <div class="nav-interactions">
     <% if (user && user.id) { %>
       <% if (user.is_admin) { %>
-      <form method="GET" action="/ht_my_listings">
+      <form method="GET" action="/my_listings">
         <button class="user-functions">
           <span>
             <i class="fa-solid fa-heart"></i>
@@ -15,7 +21,7 @@
           </span>
         </button>
       </form>
-      <form method="GET" action="/ht_create_listing">
+      <form method="GET" action="/create_listing">
         <button class="user-functions">
           <span>
             <i class="fa-solid fa-heart"></i>
@@ -24,7 +30,7 @@
         </button>
       </form>
       <% } %>
-      <form method="GET" action="/ht_favourites">
+      <form method="GET" action="/favourites">
         <button class="user-functions">
           <span>
             <i class="fa-solid fa-heart"></i>
@@ -32,7 +38,7 @@
           </span>
         </button>
       </form>
-      <form method="POST" action="/ht_logout">
+      <form method="POST" action="/logout">
         <button type="submit">
           <span>
             <i class="fa-solid fa-right-from-bracket"></i>
@@ -41,7 +47,7 @@
         </button>
       </form>
       <% } else { %>
-        <form method="GET" action="/ht_login">
+        <form method="GET" action="/login">
           <button class="user-functions">
             <span>
               <i class="fa-solid fa-paw"></i>
@@ -49,7 +55,7 @@
             </span>
           </button>
         </form>
-        <form method="GET" action="/ht_register">
+        <form method="GET" action="/register">
           <button class="user-functions">
             <span>
               <i class="fa-solid fa-paw"></i>

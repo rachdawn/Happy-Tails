@@ -62,7 +62,7 @@
             </div>
             <footer class="interactions">
               <button>
-                <a href="/ht_listing/<%= list.dog_id %>">MORE INFO</a>
+                <a href="/listing/<%= list.dog_id %>">MORE INFO</a>
               </button>
               <% if (user && user.id) { %>
                 <form method="POST" action="/delete-favorite/<%= list.dog_id %>">
@@ -71,7 +71,7 @@
                   </button>
                 </form>
                 <% } else { %>
-                  <form method="GET" action="/ht_login">
+                  <form method="GET" action="/login">
                     <button>
                       <i class="fa-solid fa-heart"></i>
                     </button>

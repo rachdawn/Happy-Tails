@@ -74,10 +74,10 @@
             </div>
             <footer class="interactions">
               <button>
-                <a href="/ht_listing/<%= dog.id %>">MORE INFO</a>
+                <a href="/listing/<%= dog.id %>">MORE INFO</a>
               </button>
               <% if (user && user.id) { %>
-                <form method="POST" action="/ht_favourites">
+                <form method="POST" action="/favourites">
                   <input type="hidden" name="dog_id" value="<%= dog.id %>">
                   <button type="submit">
                     <i class="fa-solid fa-heart"></i>
@@ -124,10 +124,10 @@
               </div>
               <footer class="interactions">
                 <button>
-                  <a href="/ht_listing/<%= list.id %>">MORE INFO</a>
+                  <a href="/listing/<%= list.id %>">MORE INFO</a>
                 </button>
                 <% if (user && user.id) { %>
-                  <form method="POST" action="/ht_favourites">
+                  <form method="POST" action="/favourites">
                     <input type="hidden" name="dog_id" value="<%= list.id %>">
                     <button type="submit">
                       <i class="fa-solid fa-heart"></i>

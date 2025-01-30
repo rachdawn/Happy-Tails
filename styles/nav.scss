@@ -28,15 +28,34 @@
 #logo a {
   color: white;
   text-decoration: none;
+  span {
+    display: flex;
+    margin: auto;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    justify-content: left;
+  }
   h1 {
     margin: 0;
-    font-size: 2.1rem;
-    font-weight: normal;
-    letter-spacing: 0.5px;
+    font-size: 1.75rem;
+    font-weight: lighter;
+    letter-spacing: 0.4px;
+  }
+  h4 {
+    margin: 0;
+    margin-top: -8px;
+    font-size: 1rem;
+    font-weight: lighter;
+    letter-spacing: 0.75px;
   }
   i {
-    vertical-align: middle;
-    font-size: 1.65rem;
+    // vertical-align: text-bottom;
+    font-size: 1.75rem;
+    margin: 8px;
+    margin-top: 1rem;
 
   }
 }
