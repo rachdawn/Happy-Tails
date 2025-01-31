@@ -4,6 +4,7 @@ require("dotenv").config();
 // Web server config
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
+const cors = require('cors'); // Import the cors middleware
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 const { neon } = require("@neondatabase/serverless");
@@ -41,6 +42,8 @@ app.use(
     keys: ["hamza"],
   })
 );
+// Use the cors middleware
+app.use(cors());
 
 app.use(express.static("public"));
 
