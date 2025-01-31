@@ -4,7 +4,7 @@ require("dotenv").config();
 // Web server config
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
-const cors = require('cors'); // Import the cors middleware
+const cors = require("cors"); // Import the cors middleware
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 const { neon } = require("@neondatabase/serverless");
@@ -14,12 +14,20 @@ const db = require("./db/connection"); // Import the database connection
 const PORT = process.env.PORT || 8080;
 const app = express();
 
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhone = process.env.TWILIO_PHONE;
-const phone = process.env.PHONE;
+// Configure CORS
+const corsOptions = {
+  origin: "https://your-frontend.com", // Replace with your frontend domain
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
 
-const client = require("twilio")(accountSid, authToken);
+// const accountSid = process.env.TWILIO_ACCOUNT_SID;
+// const authToken = process.env.TWILIO_AUTH_TOKEN;
+// const twilioPhone = process.env.TWILIO_PHONE;
+// const phone = process.env.PHONE;
+
+// const client = require("twilio")(accountSid, authToken);
 
 app.set("view engine", "ejs");
 
@@ -42,8 +50,6 @@ app.use(
     keys: ["hamza"],
   })
 );
-// Use the cors middleware
-app.use(cors());
 
 app.use(express.static("public"));
 
@@ -64,7 +70,6 @@ app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
   next();
 });
-
 
 // app.get("/", async (req, res) => {
 //   try {
@@ -335,18 +340,18 @@ app.post("/mark-as-taken/:id", (req, res) => {
     });
 });
 
-app.post("/send", (req, res) => {
-  const username = req.session.user.username;
-  const message = req.body.messages;
+// app.post("/send", (req, res) => {
+//   const username = req.session.user.username;
+//   const message = req.body.messages;
 
-  client.messages
-    .create({
-      body: `${message} FROM ${username}`,
-      from: twilioPhone,
-      to: phone,
-    })
-    .then(() => {
-      res.status(200).json({ success: true, message: "SMS sent successfully" });
-    })
-    .catch((err) => console.log("error with messageing", err.message));
-});
+//   client.messages
+//     .create({
+//       body: `${message} FROM ${username}`,
+//       from: twilioPhone,
+//       to: phone,
+//     })
+//     .then(() => {
+//       res.status(200).json({ success: true, message: "SMS sent successfully" });
+//     })
+//     .catch((err) => console.log("error with messageing", err.message));
+// });
