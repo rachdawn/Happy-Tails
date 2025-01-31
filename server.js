@@ -16,7 +16,7 @@ const app = express();
 
 // Configure CORS
 const corsOptions = {
-  origin: "https://your-frontend.com", // Replace with your frontend domain
+  origin: "https://happytailsrescuehub.vercel.app", // Replace with your frontend domain
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: ["Content-Type", "Authorization"],
 };
